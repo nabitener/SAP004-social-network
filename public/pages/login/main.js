@@ -11,7 +11,7 @@ container.innerHTML = `
 <input type="password" id="pwd" class="login-pwd" placeholder="Password">
 <button id="login" class="button-login">Log in</button>
 <p class="other">Ou entre com...</p>
-<p class="register">Não tem uma conta?<a href="">Registre-se</a></p>
+<p class="register">Não tem uma conta?<a href="/#register">Registre-se</a></p>
 </form>
 `
 return container;
