@@ -11,7 +11,9 @@ container.innerHTML = `
 <input type="password" id="pwd" class="login-pwd" placeholder="Password">
 <button id="login" class="button-login">Log in</button>
 <p class="other">Ou entre com...</p>
-<p class="register">Não tem uma conta?<a href="">Registre-se</a></p>
+<link rel="stylesheet" href="style.css">
+<input type="image" id="btn-google" class="btn-google" src="google.png">
+<p class="register">Não tem uma conta? <a href="">Registre-se</a></p>
 </form>
 `
 return container;
