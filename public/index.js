@@ -8,8 +8,6 @@ main.appendChild(login());
 
 // document.querySelector('#root').appendChild(login());
 
-
-
 const init = () => {
     window.addEventListener("hashchange",() => {
         main.innerHTML = "";
