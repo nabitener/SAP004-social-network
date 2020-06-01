@@ -4,7 +4,7 @@ export const login = () => {
 const container = document.createElement("div");
 
 container.innerHTML = `
-<img src="viagem.jpg" alt="Img Logo">
+<img src="" alt="Img Logo">
 <form>
 	<p class="logo"><h2>Nome do app</h2></p> 
 	<input type="email" id="email" class="login-email" placeholder="Email">

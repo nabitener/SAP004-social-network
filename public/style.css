@@ -1,19 +1,5 @@
-.other{
-	text-align: center;
-}
-
 .btn-google{
   height: 50px;
 	width: 50px;
 	margin-left: 45%;
-}
-
-div{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-img{
-	width: 30%;
 }
