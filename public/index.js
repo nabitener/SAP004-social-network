@@ -4,6 +4,7 @@ import { home } from './pages/home/main.js';
 import { record } from './pages/register/main.js';
 
 document.querySelector('#root').appendChild(login());
+
 document.querySelector('#root').appendChild(record());
 
 
