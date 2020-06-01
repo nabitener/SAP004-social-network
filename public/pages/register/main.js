@@ -19,8 +19,8 @@ export const record = () => {
       <input type="radio" name="genero" id="female">Feminino
       <label for="email">
       <p><input type="email" id="email" class="email" placeholder="Digite o email"></p>
-    	<input type="password" id="pass" class="pass" placeholder= "Digite a senha">
-      <input type="password" id="pass" class="pass" placeholder= "Confirme a senha">
+    	<input type="password" id="password" class="password" placeholder= "Digite a senha">
+      <input type="password" id="password" class="password" placeholder= "Confirme a senha">
       <p><button id="record" class="btn-record">Criar conta</button></p> 
     </form>
     `
