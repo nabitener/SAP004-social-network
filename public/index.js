@@ -3,6 +3,7 @@ import { login } from './pages/login/main.js';
 import { home } from './pages/home/main.js';
 import { record } from './pages/register/main.js';
 
+<<<<<<< HEAD
 const main = document.querySelector("#root");
 main.appendChild(login());
 
@@ -29,6 +30,11 @@ window.addEventListener("load",() =>{
     init();
 })
 // document.querySelector('#root').appendChild(record());
+=======
+document.querySelector('#root').appendChild(login());
+
+document.querySelector('#root').appendChild(record());
+>>>>>>> 81f5d291d8777fec605308295c5fe291d576e9ba
 
 
 
