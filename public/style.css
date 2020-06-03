@@ -1,5 +1,150 @@
-.btn-google{
-  height: 50px;
-	width: 50px;
-	margin-left: 45%;
+.img-login,
+.form,
+.div-container,
+.div-container-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
+.form-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.root,
+.div-container,
+.div-container-register,
+.form-register {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(108, 197, 217, 1);
+}
+.form {
+  height: 70%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.img-login {
+  height: 30%;
+  justify-content: center;
+}
+.login-email,
+.login-pwd {
+  border: gray solid 1px;
+  border-radius: 20px;
+  width: 100%;
+  height: 35px;
+  padding: 10px;
+  font-size: 16px;
+}
+.login-email:hover,
+.login-pwd:hover,
+.button-login:hover,
+.btn-record:hover,
+.btn-google:hover,
+.user-name:hover,
+.surname:hover,
+.date:hover,
+.email:hover,
+.password:hover,
+.btn-back:hover {
+  cursor: pointer;
+}
+.button-login:hover, .btn-record:hover {
+  background-color:rgba(18, 139, 166, 1);
+  color: white;
+  font-weight: bold;
+}
+.button-login,
+.btn-record {
+  border-radius: 20px;
+  width: 70%;
+  height: 35px;
+  border: gray solid 1px;
+  font-size: 16px;
+}
+.btn-record {
+  margin-top: 30px;
+}
+.registro-title {
+  margin-bottom: 50px;
+}
+.btn-google {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  border: black solid 1px;
+}
+.user-name,
+.surname,
+.date,
+.email,
+.password {
+  font-size: 16px;
+  width: 75%;
+  height: 35px;
+  border-bottom: gray solid 1px;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(108, 197, 217, 1);
+}
+.date {
+  align-self: center;
+  font-size: 16px;
+  margin-top: 5px;
+  text-align: center;
+}
+.label-date {
+  text-align: center;
+  margin-bottom: 2px;
+}
+.btn-back {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  align-items: center;
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  background-color: rgba(18, 139, 166, 1);
+}
+@media screen and (min-width: 1000px) {
+  .div-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .img-login {
+    width: 30%;
+  }
+  .user-name,
+  .surname,
+  .email,
+  .password {
+    width: 30%;
+  }
+  .btn-record {
+    width: 20%;
+    height: 40px;
+  }
+  .form {
+    width: 50%;
+  }
+  .login-email,
+  .login-pwd {
+    width: 50%;
+  }
+  .button-login {
+    width: 30%;
+  }
+}
+
+/* Color Theme Swatches in RGBA 
+.Viagem-1-rgba { color: rgba(18, 139, 166, 1); }
+.Viagem-2-rgba { color: rgba(108, 197, 217, 1); }
+.Viagem-3-rgba { color: rgba(242, 183, 5, 1); }
+.Viagem-4-rgba { color: rgba(242, 159, 5, 1); }
+.Viagem-5-rgba { color: rgba(242, 185, 153, 1); }*/
