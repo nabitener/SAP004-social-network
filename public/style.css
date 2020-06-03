@@ -1,5 +1,6 @@
 .btn-google{
-  height: 50px;
+	border-radius: 50%;
+	border: none;
+	height: 50px;
 	width: 50px;
-	margin-left: 45%;
 }

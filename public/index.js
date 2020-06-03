@@ -5,6 +5,7 @@ import { record } from './pages/register/main.js';
 
 const main = document.querySelector("#root");
 main.appendChild(login());
+init();
 
 // document.querySelector('#root').appendChild(login());
 
