@@ -5,20 +5,17 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-<<<<<<< HEAD
     ],
     "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
       }
-=======
     ]
   },
   "functions": {
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint"
->>>>>>> 81f5d291d8777fec605308295c5fe291d576e9ba
     ]
   }
 }
