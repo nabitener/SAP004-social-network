@@ -7,8 +7,8 @@ export const record = () => {
 
     container.innerHTML = `
     <div class=btn-back>
-      a href="">
-        <button id="btn-back" class="btn-back">&#8672 Voltar</button>
+      <a href="">
+      <button id="btn-back" class="btn-back">&#8672 Voltar</button>
       </a>
     </div>
     <form class="form-register">

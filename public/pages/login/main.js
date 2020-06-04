@@ -1,5 +1,5 @@
 // Aqui serão criados os eventos de Manipulação de DOM e templates
-
+import {signIn} from "./data.js"
 export const login = () => {
 const container = document.createElement("div");
 container.classList.add("div-container");
@@ -19,9 +19,18 @@ container.innerHTML = `
 	<p class="register">Não tem uma conta? <a href="/#record">Cadastre-se</a></p>
 </form>
 `
+const inputGoogle = container.querySelector("#btn-google");
+
+inputGoogle.addEventListener("click", function(event) {
+	event.preventDefault()
+	const provider = new firebase.auth.GoogleAuthProvider();
+	signIn(provider);
+});
+
 return container;
 };
 
 const botaoLogin = document.querySelector("#login");
 const inputEmail = document.querySelector("#email");
 const inputSenha = document.querySelector("#pwd");
+
