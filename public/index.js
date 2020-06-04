@@ -17,3 +17,5 @@ window.addEventListener("load", () => {
   renderPage();
   init();
 });
+
+  

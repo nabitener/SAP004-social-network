@@ -1,4 +1,5 @@
 import { authEmailAndPassword } from "./data.js";
+import { signIn } from "./data.js";
 
 export const login = () => {
   const container = document.createElement("div");
@@ -26,6 +27,14 @@ export const login = () => {
   botaoLogin.addEventListener("click", (event) => {
     event.preventDefault();
     authEmailAndPassword(inputEmail, inputSenha);
+  });
+
+  const inputGoogle = container.querySelector("#btn-google");
+
+  inputGoogle.addEventListener("click", function (event) {
+    event.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    signIn(provider);
   });
   return container;
 };
