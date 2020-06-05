@@ -1,16 +1,14 @@
-// Aqui serão criados os eventos de Manipulação de DOM e templates
-
+// Aqui serão criados os eventos de Manipulação de DOM e templatesimport { newUser } from "./data.js";
 import { newUser } from "./data.js";
-
 export const record = () => {
-  const container = document.createElement("div");
-  container.classList.add("div-container-register");
+    const container = document.createElement("div");
+    container.classList.add("div-container-register");
 
-  container.innerHTML = `
+    container.innerHTML = `
     <div class=btn-back>
-    <a href="">
-    <button id="btn-back" class="btn-back input-register">&#8672 Voltar</button>
-    </a>
+      <a href="">
+      <button id="btn-back" class="btn-back input-register">&#8672 Voltar</button>
+      </a>
     </div>
     <form class="form-register">
       <p class="registro"><h2 class="registro-title">Cadastro</h2></p> 
