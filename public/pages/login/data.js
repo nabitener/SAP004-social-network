@@ -15,7 +15,7 @@ export function signIn(provider) {
 			const token = result.credential.accessToken;
 		}).catch(function(error){
 			console.log(error);
-			alert("Falha");
+			alert('Falha');
 		});
 }
 		
