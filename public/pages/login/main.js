@@ -6,17 +6,17 @@ export const login = () => {
 
   container.innerHTML = `
 <div class='img-login login'>
-<img src='imagens/logo.jpg' alt='Img Logo' width=100% height=110%>
+  <img src='imagens/logo.jpg' alt='Img Logo' width=100% height=110%>
 </div>
 <form class='form login'>
-<p class='logo text-p'>Nome do app</p> 
-<input type='email' id='email' class='login-email input-login' placeholder='E-mail' required>
-<input type='password' id='pwd' class='login-pwd input-login' placeholder='Password' required>
-<br>
-<button id='login' class='button-login'>Log in</button>
-<p class='other text-p'>Ou entre com...</p>
-<input type='image' id='btn-google' class='btn-google' src='google.png'>
-<p class='register text-p'>Não tem uma conta? <a href='/#record'>Cadastre-se</a></p>
+  <p class='logo text-p'>Nome do app</p> 
+  <input type='email' id='email' class='login-email input-login' placeholder='E-mail' required>
+  <input type='password' id='pwd' class='login-pwd input-login' placeholder='Password' required>
+  <br>
+  <button id='login' class='button-login'>Log in</button>
+  <p class='other text-p'>Ou entre com...</p>
+  <input type='image' id='btn-google' class='btn-google' src='google.png'>
+  <p class='register text-p'>Não tem uma conta? <a href='/#record'>Cadastre-se</a></p>
 </form>
 `;
   const botaoLogin = container.querySelector('#login');
@@ -33,6 +33,6 @@ export const login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     signIn(provider);
   });
-   return container;
+    return container;
 };
 
