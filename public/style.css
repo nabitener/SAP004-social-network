@@ -55,12 +55,6 @@
 .input-register:hover {
   cursor: pointer;
 }
-.button-login:hover,
-.btn-record:hover {
-  background-color: rgba(242, 110, 33, 1);
-  color: white;
-  font-weight: bold;
-}
 .button-login,
 .btn-record {
   border-radius: 20px;
@@ -71,6 +65,12 @@
 }
 .btn-record {
   margin-top: 30px;
+}
+.button-login:hover,
+.btn-record:hover {
+  background-color: rgba(242, 110, 33, 1);
+  color: white;
+  font-weight: bold;
 }
 .registro-title {
   margin-bottom: 50px;

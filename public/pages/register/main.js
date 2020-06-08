@@ -6,7 +6,7 @@ export const record = () => {
   const container = document.createElement('div');
   container.classList.add('div-container-register');
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div class=btn-back>
     <a href=''>
     <button id='btn-back' class='btn-back input-register'>&#8672 Voltar</button>

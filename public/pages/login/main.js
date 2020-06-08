@@ -23,7 +23,7 @@ export const login = () => {
   const inputEmail = container.querySelector('#email');
   const inputSenha = container.querySelector('#pwd');
   const inputGoogle = container.querySelector('#btn-google');
-  
+
   botaoLogin.addEventListener('click', (event) => {
     event.preventDefault();
     authEmailAndPassword(inputEmail, inputSenha);
@@ -33,6 +33,5 @@ export const login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     signIn(provider);
   });
-    return container;
+  return container;
 };
-
