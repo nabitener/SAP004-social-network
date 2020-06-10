@@ -5,10 +5,10 @@ export const authEmailAndPassword = (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email.value, password.value)
     .then(() => {
-      alert(`Bem-vindo ${email.value}`);
-    })
+      window.location='#home';
+      })
     .catch((error) => {
-      alert(`Falha: ${error.message}`);
+      alert(`${errorMessage(error.message)}`);
     });
 };
 export const signIn = (provider) => {
@@ -17,11 +17,11 @@ export const signIn = (provider) => {
     .signInWithPopup(provider)
     .then((result) => {
       console.log(result);
-      /* const token = result.credential.accessToken; */
-      alert('Bem-vindo');
+      const token = result.credential.accessToken;
+      alert(`${welcome(inputEmail.value)}`);
     })
     .catch((error) => {
       console.log(error);
-      alert(`Falha: ${error.message}`);
+      alert(`${errorMessage(error.message)}`);
     });
-};
+  };
