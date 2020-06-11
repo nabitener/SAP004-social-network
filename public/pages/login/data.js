@@ -15,7 +15,6 @@ export const signIn = (provider, callback) => {
     .auth()
     .signInWithPopup(provider)
     .then((result) => {
-      const token = result.credential.accessToken;
       window.location = '#home';
     })
     .catch((error) => {
