@@ -17,10 +17,10 @@ export const signIn = (provider) => {
     .auth()
     .signInWithPopup(provider)
     .then((result) => {
+      window.location='#home';
       console.log(result);
       const token = result.credential.accessToken;
       alert(`${welcome(inputEmail.value)}`);
-      //window.location='#home';
     })
     .catch((error) => {
       console.log(error);
