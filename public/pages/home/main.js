@@ -11,11 +11,11 @@ export const home = () => {
       <img class="wave" src="imagens/perfil-avatar.png">
     </div>
     <form>
-      <input id='post' class='post' type='text'>
+      <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
       <button id='send-post'>Compartilhar</button>
       <button id='photo' class='photo'>Photo</button>
     </form>
-    <div class='all-posts'></div>
+    <div id='all-posts' class='all-posts'></div>
     <!--<form>
       <input id='posts' class='posts' type='text'>
       <button id='photo' class='photo'>Curtida</button>
@@ -29,9 +29,13 @@ export const home = () => {
   sendBtn.addEventListener('click', (event) => {
     event.preventDefault();
     createPost(post.value);
+    allPosts.innerHTML = '';
+    readPosts()
+    .then (postTemplate);
   });
-  const postTemplate = (array) =>{
-    array.map(post => allPosts.innerHTML = `<p>${post.text}</p>`)
+  const postTemplate = (array) => {
+    allPosts.innerHTML = array.map(post => `<p>${post.text}</p>`).join('')
   }
   return container;
 };
+

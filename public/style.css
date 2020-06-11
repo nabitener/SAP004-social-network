@@ -40,8 +40,13 @@ border-radius: 10px;
   font-size: 12px;
 }
 
-.all-posts{
-padding:10px;
+.all-posts p {
+
+border-radius: 10px;
+background-color: #e6941a;
+margin: 20px;
+padding: 30px;
+font-size: 10px;
 }
 
 .post{
