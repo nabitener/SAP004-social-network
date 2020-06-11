@@ -9,6 +9,63 @@
  align-items: center;
  justify-content: space-between;
 }
+
+
+.container{
+display:flex;
+flex-direction:column;
+border: gray solid 1px;
+width:80%;
+height:100%;
+padding: 10px;
+background-color:  rgba(30, 109, 140, 0.527);
+}
+
+.re-post{
+border-radius: 5px;
+width: 150px;
+height: 100px;
+padding: 10px;
+font-size: 16px;
+}
+
+.btn-social{
+flex-direction: row;
+flex-wrap: wrap;
+border-radius: 10px;
+  width: 30%;
+  height: 30%;
+  padding: 3px;
+  border: gray solid 1px;
+  font-size: 12px;
+}
+
+.all-posts p {
+
+border-radius: 10px;
+background-color: #e6941a;
+margin: 20px;
+padding: 30px;
+font-size: 10px;
+}
+
+.post{
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  width: 150px;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+.btn-create{
+border-radius: 10px;
+border: gray solid 1px;
+  font-size: 12px;
+}
+
 .form-register {
  display: flex;
  flex-direction: column;
@@ -52,6 +109,7 @@
  font-weight: bold;
  font-size: 30px;
 }
+
 .input-login {
  border: gray solid 1px;
  border-radius: 20px;
@@ -59,6 +117,7 @@
  padding: 10px;
  font-size: 16px;
 }
+
 .input-register:hover {
  cursor: pointer;
 }
@@ -114,35 +173,88 @@
  font-size: 16px;
  background-color: rgba(242, 110, 33, 1);
 }
+
+
+
 @media screen and (min-width: 1000px) {
- .div-container {
-  flex-direction: row;
-  justify-content: space-evenly;
- }
- .img-login {
-  width: 30%;
- }
- .register-space {
-  width: 30%;
- }
- .btn-record {
-  width: 20%;
-  height: 40px;
- }
- .form {
-  width: 50%;
- }
- .input-login {
-  width: 50%;
- }
- .button-login {
-  width: 30%;
- }
+  .div-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .img-login {
+    width: 30%;
+  }
+  .register-space {
+    width: 30%;
+  }
+  .btn-record {
+    width: 20%;
+    height: 40px;
+  }
+  .form {
+    width: 50%;
+  }
+  .input-login {
+    width: 50%;
+  }
+  .button-login {
+    width: 30%;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    border: gray solid 1px;
+    width:80%;
+    height:100%;
+    padding: 10px;
+    background-color:  rgba(30, 109, 140, 0.527);
+  }
+  
+  .re-post{
+    border-radius: 5px;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+  }
+  
+  .btn-social{
+    border-radius: 10px;
+      width: 74px;
+      height: 30px;
+      padding: 3px;
+      border: gray solid 1px;
+      font-size: 12px;
+  }
+  
+  .all-posts{
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding:10px;
+  }
+  
+  .post{
+      /* display: flex;
+      justify-content: space-around; */
+      border-radius: 5px;
+      width: 200px;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  
+  
+  .btn-create{
+    
+    border-radius: 10px;
+    border: gray solid 1px;
+    font-size: 12px;
+  }
+  
 }
 
 /* Paleta de cores */
 .TripCard---Trade-Turismo-1-rgba {
- color: rgba(2, 62, 140, 1);
+  color: rgb(2, 62, 140);
 }
 .TripCard---Trade-Turismo-2-rgba {
  color: rgba(14, 60, 89, 1);
