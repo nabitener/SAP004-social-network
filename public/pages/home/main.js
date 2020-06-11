@@ -1,24 +1,38 @@
 export const home = () => {
   const container = document.createElement('div');
 
+
   container.innerHTML = `
-    <div class="btn-back">
-    </div>
+    <div class="btn-back"></div>
     <div>
-    <img class="wave" src="imagens/perfil-avatar.png">
+      <img class="wave" src="imagens/perfil-avatar.png">
     </div>
-    <div class = 'container'>
-    <input id='post-text' class='re-post' type='text'>
-      <button id='photo' class='btn-social'>Photo</button>
-      <button id='send-post' class='btn-social'>Compartilhar</button>
-    </div>
-    <div class='all-posts'>
-      <input id='post' class='post' type='text'>
-      <button id='photo' class='btn-create'>Curtida</button>
-      <button id='send-post' class='btn-create'>Compartilhar</button>
-    </div>
-    <div id='all-posts'></div>
+    <form>
+      <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+      <button id='send-post'>Compartilhar</button>
+      <button id='photo' class='photo'>Photo</button>
+    </form>
+    <div id='all-posts' class='all-posts'></div>
+    <!--<form>
+      <input id='posts' class='posts' type='text'>
+      <button id='photo' class='photo'>Curtida</button>
+      </form>-->
   `;
 
+  const post = container.querySelector('#post');
+  const sendBtn = container.querySelector('#send-post');
+  const allPosts= container.querySelector('#all-posts');
+
+  sendBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    createPost(post.value);
+    allPosts.innerHTML = '';
+    readPosts()
+    .then (postTemplate);
+  });
+  const postTemplate = (array) => {
+    allPosts.innerHTML = array.map(post => `<p>${post.text}</p>`).join('')
+  }
   return container;
 };
+
