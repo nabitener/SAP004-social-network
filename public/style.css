@@ -2,15 +2,15 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 #load {
-  display: none;
+ display: none;
 }
 .login,
 .div-container,
 .div-container-register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
 }
 .app-name {
   font-size: 30px;
@@ -63,98 +63,106 @@ font-size: 16px;
   font-size: 12px;
 }
 .form-register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
 }
 .root,
 .div-container,
 .div-container-register,
 .form-register {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(14, 60, 89, 1);
+ width: 100%;
+ height: 100%;
+ background-color: rgba(14, 60, 89, 1);
 }
 .form {
-  height: 70%;
-  align-items: center;
-  justify-content: space-evenly;
+ height: 70%;
+ align-items: center;
+ justify-content: space-evenly;
 }
 .img-login {
-  height: 30%;
-  justify-content: center;
+ height: 30%;
+ justify-content: center;
+}
+.error-message {
+ color: rgb(230, 109, 109);
+ font-weight: bold;
+ font-size: 20px;
+ text-align: center;
+ padding-left: 10px;
+ padding-right: 10px;
 }
 .register a {
-  text-decoration: underline;
-  color: rgba(242, 110, 33, 1);
-  font-weight: bold;
+ text-decoration: underline;
+ color: rgba(242, 110, 33, 1);
+ font-weight: bold;
 }
 .logo {
-  font-weight: bold;
-  font-size: 30px;
+ font-weight: bold;
+ font-size: 30px;
 }
 .input-login {
-  border: gray solid 1px;
-  border-radius: 20px;
-  width: 100%;
-  height: 35px;
-  padding: 10px;
-  font-size: 16px;
+ border: gray solid 1px;
+ border-radius: 20px;
+ height: 35px;
+ padding: 10px;
+ font-size: 16px;
 }
 .input-register:hover {
-  cursor: pointer;
+ cursor: pointer;
 }
 .button-login:hover,
 .btn-record:hover {
-  background-color: rgba(242, 110, 33, 1);
-  color: white;
-  font-weight: bold;
+ background-color: rgba(242, 110, 33, 1);
+ color: white;
+ font-weight: bold;
+ width: 40%;
 }
 .button-login,
 .btn-record {
-  border-radius: 20px;
-  width: 70%;
-  height: 35px;
-  border: gray solid 1px;
-  font-size: 16px;
+ border-radius: 20px;
+ width: 70%;
+ height: 35px;
+ border: gray solid 1px;
+ font-size: 16px;
 }
 .btn-record {
-  margin-top: 30px;
+ margin-top: 30px;
 }
 .registro-title {
-  margin-bottom: 50px;
-  color: white;
+ margin-bottom: 50px;
+ color: white;
 }
 .btn-google {
-  height: 50px;
-  width: 50px;
-  border-radius: 10px;
-  border: black solid 1px;
+ height: 50px;
+ width: 50px;
+ border-radius: 10px;
+ border: black solid 1px;
 }
 .register-space {
-  font-size: 16px;
-  width: 75%;
-  height: 35px;
-  border-bottom: white solid 1px;
-  color: white;
-  padding: 10px;
-  margin: 10px;
-  background-color: rgba(14, 60, 89, 1);
+ font-size: 16px;
+ width: 75%;
+ height: 35px;
+ border-bottom: white solid 1px;
+ color: white;
+ padding: 10px;
+ margin: 10px;
+ background-color: rgba(14, 60, 89, 1);
 }
 .register-space::placeholder {
-  color: white;
+ color: white;
 }
 .btn-back {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-  align-items: center;
-  font-weight: bold;
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-  background-color: rgba(242, 110, 33, 1);
+ display: flex;
+ justify-content: flex-start;
+ padding-left: 10px;
+ align-items: center;
+ font-weight: bold;
+ width: 100%;
+ height: 40px;
+ font-size: 16px;
+ background-color: rgba(242, 110, 33, 1);
 }
 
 @media screen and (min-width: 1000px) {
@@ -231,14 +239,14 @@ font-size: 16px;
   color: rgb(2, 62, 140);
 }
 .TripCard---Trade-Turismo-2-rgba {
-  color: rgba(14, 60, 89, 1);
+ color: rgba(14, 60, 89, 1);
 }
 .TripCard---Trade-Turismo-3-rgba {
-  color: rgba(30, 109, 140, 1);
+ color: rgba(30, 109, 140, 1);
 }
 .TripCard---Trade-Turismo-4-rgba {
-  color: rgba(242, 110, 33, 1);
+ color: rgba(242, 110, 33, 1);
 }
 .TripCard---Trade-Turismo-5-rgba {
-  color: rgba(191, 87, 26, 1);
+ color: rgba(191, 87, 26, 1);
 }

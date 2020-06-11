@@ -13,6 +13,7 @@ mu</div>
   <input type='email' id='email' class='input-login' placeholder='E-mail' required>
   <input type='password' id='pwd' class='input-login' placeholder='Senha' required>
   <br>
+  <p id='error-message' class='error.message'></p>
   <button id='login' class='button-login'>Log in</button>
   <p class='other'>Ou entre com...</p>
   <input type='image' id='btn-google' class='btn-google' src='google.png'>
@@ -23,15 +24,24 @@ mu</div>
   const inputEmail = container.querySelector('#email');
   const inputSenha = container.querySelector('#pwd');
   const inputGoogle = container.querySelector('#btn-google');
+  const spaceError = container.querySelector('#error-message');
+
+  const inputError = (error) => {
+    const message = `
+    <p id='message' class='error-message'>
+    Falha: ${error}
+    </p>`;
+    spaceError.innerHTML = message;
+  };
 
   botaoLogin.addEventListener('click', (event) => {
     event.preventDefault();
-    authEmailAndPassword(inputEmail, inputSenha);
+    authEmailAndPassword(inputEmail, inputSenha, inputError);
   });
   inputGoogle.addEventListener('click', (event) => {
     event.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
-    signIn(provider);
+    signIn(provider, inputError);
   });
   return container;
 };
