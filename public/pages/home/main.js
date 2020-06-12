@@ -1,6 +1,6 @@
+import { createPost, readPosts } from './data.js';
 export const home = () => {
   const container = document.createElement('div');
-
 
   container.innerHTML = `
     <div class="btn-back"></div>
