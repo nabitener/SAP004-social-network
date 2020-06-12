@@ -1,5 +1,3 @@
-// Aqui serão criados os eventos de Manipulação de DOM e templates
-
 import { newUser } from './data.js';
 
 export const record = () => {
@@ -19,15 +17,27 @@ export const record = () => {
       <input type='email' id='email' class='email input-register register-space' placeholder='Digite o e-mail' required>
       <input type='password' id='password' class='password input-register register-space' placeholder= 'Digite a senha' required>
       <input type='password' id='confirm-password' class='password input-register register-space' placeholder= 'Confirme a senha' required>
+      <p id='error-message' class='error.message'></p>
       <button id='record' class='btn-record input-register'>Criar conta</button>
     </form>`;
 
   const email = container.querySelector('#email');
   const password = container.querySelector('#password');
   const createUser = container.querySelector('#record');
+  const spaceError = container.querySelector('#error-message');
+
+  const inputError = (error) => {
+    const message = `
+  <p id='message' class='error-message'>
+  Falha: ${error}
+  </p>`;
+    spaceError.innerHTML = message;
+  };
+
   createUser.addEventListener('click', (event) => {
     event.preventDefault();
-    newUser(email, password);
+    newUser(email, password, inputError);
   });
+
   return container;
 };

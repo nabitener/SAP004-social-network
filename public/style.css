@@ -1,6 +1,5 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  /*font-weight: bold;*/
   color: white;
 }
 #load {
@@ -27,11 +26,11 @@ body {
   background-color:  rgba(30, 109, 140, 0.527);
 }
 .re-post {
-border-radius: 5px;
-width: 150px;
-height: 100px;
-padding: 10px;
-font-size: 16px;
+  border-radius: 5px;
+  width: 150px;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
 }
 .btn-social {
   flex-direction: row;
@@ -86,6 +85,14 @@ font-size: 16px;
 .img-login {
   height: 30%;
   justify-content: center;
+}
+.error-message {
+  color: rgb(230, 109, 109);
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .register a {
   text-decoration: underline;
@@ -216,13 +223,13 @@ font-size: 16px;
     padding:10px;
   }
   .post {
-      /* display: flex;
-      justify-content: space-around; */
-      border-radius: 5px;
-      width: 200px;
-      height: 100px;
-      padding: 10px;
-      font-size: 16px;
+    /* display: flex;
+    justify-content: space-around; */
+    border-radius: 5px;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
   }
   .btn-create {
     border-radius: 10px;
@@ -237,14 +244,14 @@ font-size: 16px;
   color: rgb(2, 62, 140);
 }
 .TripCard---Trade-Turismo-2-rgba {
-  color: rgba(14, 60, 89, 1);
+ color: rgba(14, 60, 89, 1);
 }
 .TripCard---Trade-Turismo-3-rgba {
-  color: rgba(30, 109, 140, 1);
+ color: rgba(30, 109, 140, 1);
 }
 .TripCard---Trade-Turismo-4-rgba {
-  color: rgba(242, 110, 33, 1);
+ color: rgba(242, 110, 33, 1);
 }
 .TripCard---Trade-Turismo-5-rgba {
-  color: rgba(191, 87, 26, 1);
+ color: rgba(191, 87, 26, 1);
 }
