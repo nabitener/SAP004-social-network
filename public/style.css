@@ -1,5 +1,7 @@
 body {
   font-family: 'Quicksand', sans-serif;
+  /*font-weight: bold;*/
+  color: white;
 }
 #load {
   display: none;
@@ -88,7 +90,6 @@ font-size: 16px;
 .register a {
   text-decoration: underline;
   color: rgba(242, 110, 33, 1);
-  font-weight: bold;
 }
 .logo {
   font-weight: bold;
@@ -100,7 +101,7 @@ font-size: 16px;
   width: 100%;
   height: 35px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 .input-register:hover {
   cursor: pointer;
@@ -109,7 +110,6 @@ font-size: 16px;
 .btn-record:hover {
   background-color: rgba(242, 110, 33, 1);
   color: white;
-  font-weight: bold;
 }
 .button-login,
 .btn-record {
@@ -118,6 +118,7 @@ font-size: 16px;
   height: 35px;
   border: gray solid 1px;
   font-size: 16px;
+  font-weight: bold;
 }
 .btn-record {
   margin-top: 30px;
@@ -129,8 +130,7 @@ font-size: 16px;
 .btn-google {
   height: 50px;
   width: 50px;
-  border-radius: 10px;
-  border: black solid 1px;
+  border-radius: 50px;
 }
 .register-space {
   font-size: 16px;
@@ -164,6 +164,11 @@ font-size: 16px;
   }
   .img-login {
     width: 30%;
+    justify-items: center;
+  }
+  .coqueiro{
+    width: 140%;
+    height: 200%;
   }
   .register-space {
     width: 30%;
@@ -180,6 +185,7 @@ font-size: 16px;
   }
   .button-login {
     width: 30%;
+    font-family: 'Quicksand', sans-serif;
   }
   .container{
     display: flex;

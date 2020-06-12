@@ -5,17 +5,17 @@ export const login = () => {
   container.classList.add('div-container');
 
   container.innerHTML = `
-<div class='img-login'>
-  <img src='imagens/travel-logo.jpg' alt='Img Logo' width=100% height=110%>
-mu</div>
+<div class='img-login login'>
+  <img src='imagens/coqueiro-logo.png' alt='Img Logo' class='coqueiro'>
+</div>
 <form class='form login'>
-  <p class='app-name'> Nome do app </p> 
+  <p class='app-name'> Travel Time </p> 
   <input type='email' id='email' class='input-login' placeholder='E-mail' required>
   <input type='password' id='pwd' class='input-login' placeholder='Senha' required>
   <br>
   <button id='login' class='button-login'>Log in</button>
   <p class='other'>Ou entre com...</p>
-  <input type='image' id='btn-google' class='btn-google' src='google.png'>
+  <input type='image' id='btn-google' class='btn-google' src='imagens/google.png'>
   <p class='register'>Não tem uma conta? <a href='/#record'>Cadastre-se</a></p>
 </form>
 `;
