@@ -12,7 +12,7 @@ export const login = () => {
   <p class='app-name'> Travel Time </p> 
   <input type='email' id='email' class='input-login' placeholder='E-mail' required>
   <input type='password' id='pwd' class='input-login' placeholder='Senha' required>
-  <br>
+  
   <button id='login' class='button-login'>Log in</button>
   <p class='other'>Ou entre com...</p>
   <input type='image' id='btn-google' class='btn-google' src='imagens/google.png'>
