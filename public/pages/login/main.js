@@ -5,9 +5,11 @@ export const login = () => {
   container.classList.add('div-container');
 
   container.innerHTML = `
-<div class='img-login'>
-  <img src='imagens/travel-logo.jpg' alt='Img Logo' width=100% height=110%>
-mu</div>
+
+<div class='img-login login'>
+  <img src='imagens/heart-logo.jpg' alt='Img Logo' width=100% height=110%>
+</div>
+
 <form class='form login'>
   <p class='app-name'> Nome do app </p> 
   <input type='email' id='email' class='input-login' placeholder='E-mail' required>
