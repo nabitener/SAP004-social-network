@@ -13,6 +13,10 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.coqueiro {
+  width: 90%;
+  height: 125%;
+}
 .app-name {
   font-size: 30px;
 }
@@ -174,7 +178,7 @@ body {
     justify-items: center;
   }
   .coqueiro{
-    width: 140%;
+    width: 110%;
     height: 200%;
   }
   .register-space {
