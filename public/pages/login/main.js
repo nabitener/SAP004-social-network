@@ -6,7 +6,7 @@ export const login = () => {
 
   container.innerHTML = `
 <div class='img-login login'>
-  <img src='imagens/logo.jpg' alt='Img Logo' width=100% height=110%>
+  <img src='imagens/heart-logo.jpg' alt='Img Logo' width=100% height=110%>
 </div>
 <form class='form login'>
 <p class='logo text-p'>Nome do app</p> 
