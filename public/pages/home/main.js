@@ -1,25 +1,38 @@
-// Aqui serão criados os eventos de Manipulação de DOM e templates
-import { greeting } from './data.js';
-
 export const home = () => {
   const container = document.createElement('div');
 
+
   container.innerHTML = `
+    <div class="btn-back"></div>
+    <div>
+      <img class="wave" src="imagens/perfil-avatar.png">
+    </div>
     <form>
-      <input id='name' type='text'>
-      <button id='greeting-btn'>Dizer Oi</button>
+      <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+      <button id='send-post'>Compartilhar</button>
+      <button id='photo' class='photo'>Photo</button>
     </form>
-    <div id='greeting-message'></div>
+    <div id='all-posts' class='all-posts'></div>
+    <!--<form>
+      <input id='posts' class='posts' type='text'>
+      <button id='photo' class='photo'>Curtida</button>
+      </form>-->
   `;
 
-  const name = container.querySelector('#name');
-  const greetingBtn = container.querySelector('#greeting-btn');
-  const greetingMessage = container.querySelector('#greeting-message');
+  const post = container.querySelector('#post');
+  const sendBtn = container.querySelector('#send-post');
+  const allPosts= container.querySelector('#all-posts');
 
-  greetingBtn.addEventListener('click', (event) => {
+  sendBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    greetingMessage.innerHTML = greeting(name.value);
+    createPost(post.value);
+    allPosts.innerHTML = '';
+    readPosts()
+    .then (postTemplate);
   });
-
+  const postTemplate = (array) => {
+    allPosts.innerHTML = array.map(post => `<p>${post.text}</p>`).join('')
+  }
   return container;
 };
+

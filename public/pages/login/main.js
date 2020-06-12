@@ -1,20 +1,47 @@
-// Aqui serão criados os eventos de Manipulação de DOM e templates
+import { authEmailAndPassword, signIn } from './data.js';
 
 export const login = () => {
-const container = document.createElement("div");
+  const container = document.createElement('div');
+  container.classList.add('div-container');
 
-container.innerHTML = `
-<img src="" alt="Img Logo">
-<form>
-<p class="logo"><h2>Nome do app</h2></p> 
-<input type="email" id="email" class="login-email" placeholder="E-mail">
-<input type="password" id="pwd" class="login-pwd" placeholder="Password">
-<button id="login" class="button-login">Log in</button>
-<p class="other">Ou entre com...</p>
-<link rel="stylesheet" href="style.css">
-<input type="image" id="btn-google" class="btn-google" src="google.png">
-<p class="register">Não tem uma conta? <a href="/#register">Registre-se</a></p>
+  container.innerHTML = `
+<div class='img-login'>
+  <img src='imagens/travel-logo.jpg' alt='Img Logo' width=100% height=110%>
+mu</div>
+<form class='form login'>
+  <p class='app-name'> Nome do app </p> 
+  <input type='email' id='email' class='input-login' placeholder='E-mail' required>
+  <input type='password' id='pwd' class='input-login' placeholder='Senha' required>
+  <br>
+  <p id='error-message' class='error.message'></p>
+  <button id='login' class='button-login'>Log in</button>
+  <p class='other'>Ou entre com...</p>
+  <input type='image' id='btn-google' class='btn-google' src='google.png'>
+  <p class='register'>Não tem uma conta? <a href='/#record'>Cadastre-se</a></p>
 </form>
-`
-return container;
+`;
+  const botaoLogin = container.querySelector('#login');
+  const inputEmail = container.querySelector('#email');
+  const inputSenha = container.querySelector('#pwd');
+  const inputGoogle = container.querySelector('#btn-google');
+  const spaceError = container.querySelector('#error-message');
+
+  const inputError = (error) => {
+    const message = `
+    <p id='message' class='error-message'>
+    Falha: ${error}
+    </p>`;
+    spaceError.innerHTML = message;
+  };
+
+  botaoLogin.addEventListener('click', (event) => {
+    event.preventDefault();
+    authEmailAndPassword(inputEmail, inputSenha, inputError);
+  });
+  inputGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    signIn(provider, inputError);
+  });
+  return container;
 };
