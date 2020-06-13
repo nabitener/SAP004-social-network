@@ -29,13 +29,6 @@ body {
   padding: 10px;
   background-color:  rgba(30, 109, 140, 0.527);
 }
-.re-post {
-  border-radius: 5px;
-  width: 150px;
-  height: 100px;
-  padding: 10px;
-  font-size: 16px;
-}
 .btn-social {
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,14 +42,6 @@ body {
   padding: 10px;
   background-color: rgba(30, 109, 140, 0.527);
 }
-.all-posts p {
-  border-radius: 10px;
-  background-color: #e6941a;
-  margin: 20px;
-  padding: 30px;
-  font-size: 10px;
-}
-.post,
 .text-post  {
   width: 100%;
   height: 80%;
@@ -74,6 +59,7 @@ body {
 .div-post {
   height: 150px;
   background-color: rgba(191, 87, 26, 1);
+  border-radius: 5px;
 }
 .post {
   border-radius: 5px;
@@ -116,10 +102,12 @@ body {
   padding-left: 10px;
   color: white;
 }
-.div-delete,
 .input-private {
-  height: 30px;
+  height: 35px;
   padding: 2px;
+}
+.div-delete{
+  padding: 3px;
 }
 .div-name,
 .label-private {
@@ -265,7 +253,7 @@ body {
   }
   .img-login {
     width: 30%;
-    justify-items: center;
+    /*justify-items: center;*/
   }
   .coqueiro{
     width: 110%;
@@ -282,10 +270,10 @@ body {
     width: 50%;
   }
   .input-login {
-    width: 50%;
+    width: 40%;
   }
   .button-login {
-    width: 30%;
+    width: 20%;
     font-family: 'Quicksand', sans-serif;
   }
   .container {
@@ -296,12 +284,6 @@ body {
     height: 100%;
     padding: 10px;
     background-color: rgba(30, 109, 140, 0.527);
-  }
-  .re-post {
-    border-radius: 5px;
-    width: 200px;
-    height: 100px;
-    padding: 10px;
   }
   .btn-social {
     border-radius: 10px;
@@ -315,21 +297,6 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     padding:10px;
-  }
-  .post {
-    /* display: flex;
-    justify-content: space-around; */
-    border-radius: 5px;
-    width: 200px;
-    height: 100px;
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .all-posts {
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 10px;
   }
   .write-post {
     width: 60%;
