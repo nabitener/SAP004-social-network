@@ -14,7 +14,7 @@ export const signIn = (provider, callback) => {
   firebase
     .auth()
     .signInWithPopup(provider)
-    .then((result) => {
+    .then(() => {
       window.location = '#home';
     })
     .catch((error) => {
