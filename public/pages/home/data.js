@@ -4,10 +4,11 @@ export const createPost = (post) => {
         .firestore()
         .collection('post')
         .add({
-            name: firebase.auth().currentUser.email,
+            name: firebase.auth().currentUser.displayName,
             text: post,
             user_id: firebase.auth().currentUser.uid,
             likes: 0,
+            timestamps: firebase.firestore.Timestamp.fromDate(new Date()).toDate().toLocaleString('pt-BR'),
             coments: [],
             doc: firebase.firestore().collection('post').id,
         })
@@ -17,6 +18,7 @@ export const createPost = (post) => {
         .catch(function (error) {
             console.error('Error adding document: ', error);
         });
+    
 };
 
 export const readPosts = (callback) => {
@@ -24,6 +26,7 @@ export const readPosts = (callback) => {
             .firestore()
             .collection('post')
             .limit(20)
+            .orderBy('timestamps', 'desc')
             .get().then((querySnapshot) => {
                 querySnapshot.forEach((post) => {
                     callback(post);
@@ -32,11 +35,10 @@ export const readPosts = (callback) => {
             });
 };
 
-
 export const deletePost = (postId) => {
 firebase.firestore().collection('post').doc(postId).delete().then(doc => {
     console.log("Document successfully deleted!");
     console.log(postId);
-})
-}
+});
 
+}

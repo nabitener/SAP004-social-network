@@ -4,8 +4,8 @@ export const home = () => {
   const container = document.createElement('div');
   container.classList.add('div-home');
 
-  container.innerHTML = `
-    <div class="btn-back"></div>
+  container.innerHTML = `  
+  <div class="btn-back"></div>
     <div>
       <img class="wave" src="imagens/perfil-avatar.png">
     </div>
@@ -48,7 +48,7 @@ export const home = () => {
     const spaceTemplate = `
     <div id='div-post' class='div-post'>
     <div id='container-name' class='container-name'>
-    <div id='div-name' class='div-name'>${post.data().name}</div>
+    <div id="userName">${firebase.auth().currentUser.displayName}</div>
     <div id='${post.id}' class='div-delete'>
     <button id='delete' class='delete'>❌</button>
     </div>
@@ -77,8 +77,8 @@ export const home = () => {
       console.log('clicou')
       readPosts(postTemplate);
     })
-  };
 
+  };
   readPosts(postTemplate);
 
   return container;

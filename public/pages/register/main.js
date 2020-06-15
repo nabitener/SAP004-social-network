@@ -25,6 +25,7 @@ export const record = () => {
   const password = container.querySelector('#password');
   const createUser = container.querySelector('#record');
   const spaceError = container.querySelector('#error-message');
+  
 
   const inputError = (error) => {
     const message = `
