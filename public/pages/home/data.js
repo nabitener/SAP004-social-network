@@ -40,5 +40,13 @@ firebase.firestore().collection('post').doc(postId).delete().then(doc => {
     console.log("Document successfully deleted!");
     console.log(postId);
 });
-
+  
 }
+export const signOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      window.location = '#login' 
+    });
+  }

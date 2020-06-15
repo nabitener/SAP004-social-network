@@ -42,6 +42,13 @@ body {
   padding: 10px;
   background-color: rgba(30, 109, 140, 0.527);
 }
+.out{
+  padding-left: 85%;
+}
+.sign-out {
+  width: 50px;
+  display: inline-flex;
+}
 .text-post  {
   width: 100%;
   height: 80%;
@@ -258,6 +265,12 @@ body {
   .coqueiro{
     width: 110%;
     height: 200%;
+  }
+  .out{
+    padding-left: 95%;
+  }
+  .signout {
+    width: 50px;
   }
   .register-space {
     width: 30%;
