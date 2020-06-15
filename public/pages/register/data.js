@@ -1,12 +1,11 @@
-export const newUser = (email, password) => {
+export const newUser = (email, password, callback) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email.value, password.value)
     .then(() => {
-      alert(`Bem-vindo ${email.value}`);
+      window.location = '#home';
     })
     .catch((error) => {
-      console.error(error.code);
-      alert(`Falha ao cadastrar ${error.message}`);
+      callback(error.message);
     });
 };
