@@ -1,45 +1,40 @@
-import { createPost, readPosts, deletePost, signOut } from './data.js';
+import { createPost, readPosts, deletePost } from './data.js';
 
 export const home = () => {
   const container = document.createElement('div');
   container.classList.add('div-home');
 
   container.innerHTML = `  
-  <div class='out'><img src='imagens/sign-out.png' class='signout' id='sign-out></div>
+  <div class='out'>
+    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out>
+  </div>
   <div class="btn-back"></div>
     <div>
       <img class="wave" src="imagens/perfil-avatar.png">
     </div>
-    
     <form>
       <div id='write-post' class='write-post'></div>
-      <div id='input-post' class='input-post'></div>
-    <div>
-      <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+        <div id='input-post' class='input-post'>
+        <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
     </div>
     <div id='container-private' class='container-private'></div>
-      <div id='btn-post' class='btn-post'>
-        <button id='send-post' class='send-post icon-post'>✈️</button>
-        <button id='photo' class='photo icon-post'>📸</button>
-      </div> 
-
+    <div id='btn-post' class='btn-post'>
+      <button id='send-post' class='send-post icon-post'>✈️</button>
+      <button id='photo' class='photo icon-post'>📸</button>
+    </div> 
     <div id='input-private' class='input-private'> 
       <input type='radio' id='private' class='private' name='private-post' value='private'>
       <label for='private' class='label-private'>Privado</label>
       <input type='radio' id='public' class='public' name='private-post' value='public'>
       <label for='public' class='label-private'>Público</label>
-    </div>
-    
-    
-    
-    <div id='all-posts' class='all-posts'></div>
+    </div>  
+      <div id='all-posts' class='all-posts'></div>
     </form>
   `;
 
   const post = container.querySelector('#post');
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
-  //const exit = container.querySelector('#sign-out')
 
   sendBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -48,13 +43,15 @@ export const home = () => {
     allPosts.innerHTML = '';
     readPosts(postTemplate);
   });
-  const exit = container.querySelector('#sign-out')
-  exit.addEventListener('click', (event) => {
-    event.preventDefault()
-    signOut()
-  })
 
-  
+  const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        window.location = '#login' 
+      });
+    }
 
   const postTemplate = (post) => {
     const now = new Date;
@@ -92,6 +89,7 @@ export const home = () => {
     })
   };
   readPosts(postTemplate);
+  signOut();
 
   return container;
 };

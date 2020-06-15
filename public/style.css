@@ -43,11 +43,10 @@ body {
   background-color: rgba(30, 109, 140, 0.527);
 }
 .out{
-  padding-left: 85%;
+  padding-left: 90%;
 }
-.sign-out {
-  width: 50px;
-  display: inline-flex;
+.signout{
+  width: 35px;
 }
 .text-post  {
   width: 100%;
@@ -83,7 +82,6 @@ body {
   align-items: center;
   height: 40px;
   width: 50%;
-  font-size: 16px;
 }
 .div-btn {
   display: flex;
@@ -266,11 +264,15 @@ body {
     width: 110%;
     height: 200%;
   }
+  .input-private{
+    padding-left: 40%;
+    width: 60%;
+  }
   .out{
     padding-left: 95%;
   }
   .signout {
-    width: 50px;
+    width: 45px;
   }
   .register-space {
     width: 30%;
@@ -315,9 +317,14 @@ body {
     width: 60%;
   }
   .post {
+    width: 60%;
     height: 100px;
     padding: 10px;
     font-size: 16px;
+  }
+  .send-post,
+  .photo {
+    width: 20%;
   }
   .btn-create {
     border-radius: 10px;

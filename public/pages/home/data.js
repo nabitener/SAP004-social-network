@@ -42,11 +42,3 @@ firebase.firestore().collection('post').doc(postId).delete().then(doc => {
 });
   
 }
-export const signOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      window.location = '#login' 
-    });
-  }
