@@ -53,6 +53,7 @@ body {
   height: 80%;
   color: white;
   padding: 10px;
+  background-color: rgba(191, 87, 26, 1);
 }
 .write-post,
 .div-post {
@@ -99,6 +100,15 @@ body {
 .curtida {
   width: 30%;
 }
+.privaty{
+  text-align: center;
+}
+.select-private {
+  border-radius: 5px;
+  width: 10%;
+  height: 30px;
+  font-size: 16px;
+}
 .container-name {
   display: flex;
   flex-direction: row;
@@ -110,6 +120,8 @@ body {
 .input-private {
   height: 35px;
   padding: 2px;
+  width: 15%;
+  text-align: end;
 }
 .div-delete{
   padding: 3px;
@@ -119,14 +131,22 @@ body {
   padding-left: 2px;
 }
 .input-private {
-  width: 50%;
-  align-self: flex-end;
-  padding-left: 25px;
+  width: 25%;
+  margin-right: 5px;
+  text-align-last: center;
+  font-size: 16px;
+  border-radius: 5px;
 }
-.delete {
+.delete,
+.edit,
+.save {
   border-radius: 5px;
   border: 1px solid gray;
   font-size: 16px;
+}
+.save,
+.select-private {
+  display: none;
 }
 .date {
   align-self: center;
@@ -325,6 +345,9 @@ body {
   .send-post,
   .photo {
     width: 20%;
+  }
+  .input-private {
+    width: 15%;
   }
   .btn-create {
     border-radius: 10px;
