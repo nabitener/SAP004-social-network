@@ -120,7 +120,6 @@ body {
 .input-private {
   height: 35px;
   padding: 2px;
-  width: 15%;
   text-align: end;
 }
 .div-delete{
@@ -285,8 +284,7 @@ body {
     height: 200%;
   }
   .input-private{
-    padding-left: 40%;
-    width: 60%;
+    width: 15%;
   }
   /*.out{
     padding-left: 95%;
@@ -345,9 +343,6 @@ body {
   .send-post,
   .photo {
     width: 20%;
-  }
-  .input-private {
-    width: 15%;
   }
   .btn-create {
     border-radius: 10px;

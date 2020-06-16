@@ -3,7 +3,7 @@ export const createPost = (post, privacyPost) => {
     .firestore()
     .collection('post')
     .add({
-        name: firebase.auth().currentUser.displayName,
+        name: firebase.auth().currentUser.email,
         timestamps: firebase.firestore.Timestamp.fromDate(new Date()).toDate().toLocaleString('pt-BR'),
         text: post,
         user_id: firebase.auth().currentUser.uid,
@@ -23,6 +23,8 @@ export const readPosts = (callback) => {
     firebase
     .firestore()
     .collection('post')
+    .limit(20)
+    .orderBy('timestamps', 'desc')
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((post) => {
@@ -46,27 +48,6 @@ export const editAndSavePost = (id, post, privacyPost) => {
     });
 };
 
-export const readPosts = (callback) => {
-        firebase
-            .firestore()
-            .collection('post')
-            .limit(20)
-            .orderBy('timestamps', 'desc')
-            .get().then((querySnapshot) => {
-                querySnapshot.forEach((post) => {
-                    callback(post);
-                });
-        
-            });
-};
-
-export const deletePost = (postId) => {
-firebase.firestore().collection('post').doc(postId).delete().then(doc => {
-    console.log("Document successfully deleted!");
-    console.log(postId);
-});
-
-}
 /*export const signOut = () => {
     firebase
     .auth()
