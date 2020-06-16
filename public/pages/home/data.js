@@ -51,3 +51,11 @@ firebase.firestore().collection('post').doc(postId).delete().then(doc => {
     });
     
 }*/
+export const likePosts =  (id,likes) => {
+    firebase.firestore().collection('post').doc(id).update ({
+    likes: likes + 1
+   })
+}   
+
+
+
