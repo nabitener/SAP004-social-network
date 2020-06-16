@@ -1,6 +1,5 @@
 import { createPost, readPosts, deletePost, likePosts } from './data.js';
 
-
 export const home = () => {
 
   const container = document.createElement('div');
@@ -45,45 +44,6 @@ export const home = () => {
     allPosts.innerHTML = '';
     readPosts(postTemplate);
   });
-
-  
-  const postTemplate = (post) => {
-    const now = new Date;
-    const spaceTemplate = `
-    <div id='div-post' class='div-post'>
-    <div id='container-name' class='container-name'>
-    <div id="userName">${firebase.auth().currentUser.displayName}</div>
-    <div id='${post.id}' class='div-delete'>
-    <button id='delete' class='delete'>❌</button>
-    </div>
-    </div>
-    <p id='text-post' class='text-post'>${post.data().text}
-    </p>
-    <div id='div-container-btn' class='div-container-btn'>
-    <div id='div-btn' class='div-btn'>
-    <button id='curtida' class='curtida icon-post'>❤️${post.data().likes}</button>
-    <button id='comentar' class='comentar icon-post'>💬${post.data().coments}</button>
-    </div>
-    <div id='div-date' class=div-date>
-    <p id='date' class='date'>${now.getDate()}/${now.getMonth()}/${now.getFullYear()}</p>
-    </div>
-    </div>
-    </div>
-    `;
-
-    allPosts.innerHTML += spaceTemplate;
-
-    const btnDelete = allPosts.querySelector('#delete');
-    btnDelete.addEventListener('click', (e) => {
-      const id = e.target.parentElement.id;
-      deletePost(id);
-      allPosts.innerHTML = '';
-      console.log('clicou')
-      readPosts(postTemplate);
-    }) 
-  };  
-    readPosts(postTemplate);
-    
 
   const postTemplate = (post) => {
     const now = new Date;
