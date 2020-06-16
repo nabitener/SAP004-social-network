@@ -23,8 +23,10 @@ export const record = () => {
 
   const email = container.querySelector('#email');
   const password = container.querySelector('#password');
+  const newpassword = container.querySelector('#confirm-password');
   const createUser = container.querySelector('#record');
   const spaceError = container.querySelector('#error-message');
+  
 
   const inputError = (error) => {
     const message = `
@@ -36,7 +38,12 @@ export const record = () => {
 
   createUser.addEventListener('click', (event) => {
     event.preventDefault();
-    newUser(email, password, inputError);
+  if ((password.value) !== (newpassword.value) ) {
+    spaceError.innerHTML = `<p id='message' class='error-message'>Senhas divergentes,digite novamente</p>`;
+  } else {
+  spaceError.innerHTML = '' ;
+  newUser(email, password,inputError);
+  }
   });
 
   return container;

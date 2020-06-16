@@ -1,34 +1,37 @@
-import { createPost, readPosts, deletePost, editAndSavePost } from './data.js';
+import { createPost, readPosts, deletePost, editAndSavePost, likePosts } from './data.js';
 
 export const home = () => {
+
   const container = document.createElement('div');
   container.classList.add('div-home');
 
-  container.innerHTML = `
-    <div class="btn-back"></div>
+  container.innerHTML = `  
+  <!--<div class='out'>
+    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out>
+  </div>-->
+  <div class="btn-back"></div>
     <div>
       <img class="wave" src="imagens/perfil-avatar.png">
     </div>
     <form>
-    <div id='write-post' class='write-post'>
-    <div id='input-post' class='input-post'>
-    <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
-    </div>
-    <div id='container-private' class='container-private'>
+      <div id='write-post' class='write-post'></div>
+        <div id='input-post' class='input-post'>
+        <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+      </div>
+    <div id='container-private' class='container-private'></div>
     <div id='btn-post' class='btn-post'>
-    <button id='send-post' class='send-post icon-post'>✈️</button>
-    <button id='photo' class='photo icon-post'>📸</button>
+      <button id='send-post' class='send-post icon-post'>✈️</button>
+      <button id='photo' class='photo icon-post'>📸</button>
     </div> 
     <select id='input-private' class='input-private' name='input-private'>
     <option id='public' class'public'>Público</option> 
     <option id='private' class='private' selected>Privado</option>
     </select>
     </div>  
-    </div>
-    <div id='all-posts' class='all-posts'></div>
+      <div id='all-posts' class='all-posts'></div>
     </form>
   `;
-
+  
   const post = container.querySelector('#post');
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
@@ -101,7 +104,6 @@ export const home = () => {
       allPosts.innerHTML = '';
       readPosts(postTemplate);
     });
-
     btnEdit.addEventListener('click', (event) => {
       event.preventDefault();
       editPost();
@@ -142,12 +144,28 @@ export const home = () => {
       allPosts.innerHTML = '';
       readPosts(postTemplate);
     };
-  };
+
+    // console.log(post.id)
+    const btnLikes =  spaceTemplate.querySelector(`button[data-id='${post.id}']`);
+    // console.log(btnLikes);
+    btnLikes.addEventListener( 'click' , () => {
+      // console.log("like")
+      const id = btnLikes.dataset.id
+      console.log(id);
+      // const id = post.id
+      likePosts(id,post.data().likes);
+      allPosts.innerHTML = '';
+      readPosts(postTemplate);
+    });
+    };
+
+    
 
   readPosts(postTemplate);
 
   return container;
 };
+
 
 /*const validarEdit = () => {
       if (post.data().user_id !== firebase.auth().currentUser.uid) {
