@@ -42,12 +42,12 @@ body {
   padding: 10px;
   background-color: rgba(30, 109, 140, 0.527);
 }
-.out{
+/*.out{
   padding-left: 90%;
 }
 .signout{
   width: 35px;
-}
+}*/
 .text-post  {
   width: 100%;
   height: 80%;
@@ -268,11 +268,11 @@ body {
     padding-left: 40%;
     width: 60%;
   }
-  .out{
+  /*.out{
     padding-left: 95%;
   }
   .signout {
-    width: 45px;
+    width: 45px;*/
   }
   .register-space {
     width: 30%;
@@ -331,7 +331,6 @@ body {
     border: gray solid 1px;
     font-size: 12px;
   }
-}
 
 /* Paleta de cores */
 .TripCard---Trade-Turismo-1-rgba {
