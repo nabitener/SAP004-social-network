@@ -1,13 +1,14 @@
 import { createPost, readPosts, deletePost } from './data.js';
 
 export const home = () => {
+
   const container = document.createElement('div');
   container.classList.add('div-home');
 
   container.innerHTML = `  
-  <div class='out'>
+  <!--<div class='out'>
     <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out>
-  </div>
+  </div>-->
   <div class="btn-back"></div>
     <div>
       <img class="wave" src="imagens/perfil-avatar.png">
@@ -16,7 +17,7 @@ export const home = () => {
       <div id='write-post' class='write-post'></div>
         <div id='input-post' class='input-post'>
         <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
-    </div>
+      </div>
     <div id='container-private' class='container-private'></div>
     <div id='btn-post' class='btn-post'>
       <button id='send-post' class='send-post icon-post'>✈️</button>
@@ -31,7 +32,7 @@ export const home = () => {
       <div id='all-posts' class='all-posts'></div>
     </form>
   `;
-
+  
   const post = container.querySelector('#post');
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
@@ -44,15 +45,7 @@ export const home = () => {
     readPosts(postTemplate);
   });
 
-  const signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        window.location = '#login' 
-      });
-    }
-
+  
   const postTemplate = (post) => {
     const now = new Date;
     const spaceTemplate = `
@@ -86,10 +79,10 @@ export const home = () => {
       allPosts.innerHTML = '';
       console.log('clicou')
       readPosts(postTemplate);
-    })
-  };
-  readPosts(postTemplate);
-  signOut();
+    }) 
+  };  
+    readPosts(postTemplate);
+    
 
   return container;
 };
