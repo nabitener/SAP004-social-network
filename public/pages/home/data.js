@@ -19,27 +19,30 @@ export const createPost = (post, privacyPost) => {
     });
 };
 
-export const readPosts = (callback) => {
-  firebase
+export const readPosts = (callback, callbackUser) => {
+    firebase
     .firestore()
     .collection('post')
-    .limit(20)
     .orderBy('timestamps', 'desc')
+    .limit(20)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((post) => {
         if (
           post.data().privacy === 'Público' || post.data().user_id === firebase.auth().currentUser.uid
         ) {
-          callback(post);
+          if(post.data().user_id !== firebase.auth().currentUser.uid) {
+            callback(post);
+          }else{
+            callbackUser(post);
+          }
         }
       });
     });
 };
 
-export const deletePost = (postId, callback) => {
-  firebase.firestore().collection('post').doc(postId).delete()
-  .then(callback);
+export const deletePost = (postId) => {
+    firebase.firestore().collection('post').doc(postId).delete().then();
 };
 
 export const editAndSavePost = (id, post, privacyPost) => {
