@@ -1,4 +1,4 @@
-import { createPost, readPosts, deletePost, editAndSavePost, likePosts } from './data.js';
+import { createPost, readPosts, deletePost, editAndSavePost, likePosts, signOut } from './data.js';
 
 export const home = () => {
 
@@ -6,14 +6,22 @@ export const home = () => {
   container.classList.add('div-home');
 
   container.innerHTML = `  
-  <!--<div class='out'>
-    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out>
-  </div>-->
+  <!--<ul>
+    <li>
+      <select id='profile'>
+      <option selected disabled>Fulana</option>
+      <option id='edit-profile'>Editar Perfil<option>
+      </select>
+    </li>
+  </ul>-->
+  <div class='out'>
+    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out'>
+  </div>
   <div class="btn-back"></div>
-    <div>
+  <div>
       <img class="wave" src="imagens/perfil-avatar.png">
     </div>
-    <form>
+    <form method = 'post'> 
       <div id='write-post' class='write-post'></div>
         <div id='input-post' class='input-post'>
         <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
@@ -24,8 +32,8 @@ export const home = () => {
       <button id='photo' class='photo icon-post'>📸</button>
     </div> 
     <select id='input-private' class='input-private' name='input-private'>
-    <option id='public' class'public'>Público</option> 
-    <option id='private' class='private' selected>Privado</option>
+      <option id='public' class'public'>Público</option> 
+      <option id='private' class='private' selected>Privado</option>
     </select>
     </div>  
       <div id='all-posts' class='all-posts'></div>
@@ -36,6 +44,8 @@ export const home = () => {
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
+  const exit = container.querySelector('#sign-out');
+ // const editProfile = container.querySelector('#edit-profile');
 
   sendBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -44,6 +54,16 @@ export const home = () => {
     allPosts.innerHTML = '';
     readPosts(postTemplate);
   });
+
+exit.addEventListener('click', (event) => {
+  event.preventDefault();
+  signOut();
+});
+
+/*editProfile.addEventListener('click', (event) => {
+  event.preventDefault();
+  profile();
+});*/
 
   const postTemplate = (post) => {
     const now = new Date();
@@ -64,7 +84,7 @@ export const home = () => {
     }</textarea>
     <div id='div-container-btn' class='div-container-btn'>
     <div id='div-btn' class='div-btn'>
-    <button id='curtida' class='curtida icon-post'>❤️${
+    <button id='curtida' data-id= '${post.id}' class='curtida icon-post'>❤️${
       post.data().likes
     }</button>
     <button id='comentar' class='comentar icon-post'>💬${
@@ -87,14 +107,10 @@ export const home = () => {
 
     const btnSave = spaceTemplate.querySelector('#save');
     const btnEdit = spaceTemplate.querySelector('#edit');
-    const editText = spaceTemplate.querySelector(
-      `#text-post[data-id='${post.id}']`
-    );
+    const editText = spaceTemplate.querySelector( `#text-post[data-id='${post.id}']`);
     const selectPrivate = spaceTemplate.querySelector('#private');
-    const btnDelete = spaceTemplate.querySelector(
-      `#delete[data-id='${post.id}']`
-    );
-    const BtnCurtida = spaceTemplate.querySelector('#curtida');
+    const btnDelete = spaceTemplate.querySelector( `#delete[data-id='${post.id}']`); 
+    const BtnLikes = spaceTemplate.querySelector(`#curtida[data-id='${post.id}']`);
     const BtnComentar = spaceTemplate.querySelector('#comentar');
 
     btnDelete.addEventListener('click', (event) => {
@@ -125,7 +141,7 @@ export const home = () => {
       editText.style.color = 'rgba(14, 60, 89, 1)';
       editText.style.background = 'white';
       btnSave.style.display = 'inline-block';
-      BtnCurtida.style.display = 'none';
+      BtnLikes.style.display = 'none';
       BtnComentar.style.display = 'none';
       selectPrivate.style.display = 'inline-block';
     };
@@ -135,7 +151,7 @@ export const home = () => {
       editText.style.color = 'white';
       editText.style.background = 'rgba(191, 87, 26, 1)';
       btnSave.style.display = 'none';
-      BtnCurtida.style.display = '';
+      BtnLikes.style.display = '';
       BtnComentar.style.display = '';
       selectPrivate.style.display = 'none';
       const id = editText.dataset.id;
@@ -159,10 +175,8 @@ export const home = () => {
     });
     };
 
-    
-
   readPosts(postTemplate);
-
+  
   return container;
 };
 
