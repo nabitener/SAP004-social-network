@@ -1,10 +1,4 @@
-import {
-  createPost,
-  readPosts,
-  deletePost,
-  editAndSavePost,
-  likePosts,
-} from './data.js';
+import { createPost, readPosts, deletePost, editAndSavePost, likePosts, signOut } from './data.js';
 
 export const home = () => {
   const container = document.createElement('div');
@@ -23,6 +17,18 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
+  <!--<ul>
+    <li>
+      <select id='profile'>
+      <option selected disabled>Fulana</option>
+      <option id='edit-profile'>Editar Perfil<option>
+      </select>
+    </li>
+  </ul>-->
+  <div class='out'>
+    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out'>
+  </div>
+  <div class="btn-back"></div>
   </div>
   <form method='post'>
     <div id='input-post' class='input-post'>
@@ -35,7 +41,7 @@ export const home = () => {
         <button id='photo' class='photo icon-post'>📸</button>
       </div>
       <select id='input-private' class='input-private' name='input-private'>
-        <option id='public' class'public'>Público</option>
+        <option id='public' class='public'>Público</option>
         <option id='private' class='private' selected>Privado</option>
       </select>
     </div>
@@ -47,6 +53,8 @@ export const home = () => {
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
+  const exit = container.querySelector('#sign-out');
+ // const editProfile = container.querySelector('#edit-profile');
   const menu = container.querySelector('#icon');
 
   sendBtn.addEventListener('click', (event) => {
@@ -56,6 +64,16 @@ export const home = () => {
     allPosts.innerHTML = '';
     readPosts(postTemplate, postTemplateUser);
   });
+
+exit.addEventListener('click', (event) => {
+  event.preventDefault();
+  signOut();
+});
+
+/*editProfile.addEventListener('click', (event) => {
+  event.preventDefault();
+  profile();
+});*/
 
   const postTemplate = (post) => {
     const now = new Date();
@@ -130,7 +148,7 @@ export const home = () => {
       <option id='option-public' class='public'>Público</option> 
       <option id='option-private' class='private' selected>Privado</option>
     </select>
-    <div id='div-date' class=div-date>
+    <div id='div-date' class='div-date'>
     <p id='privaty' class='privaty'>${post.data().privacy}</p>
     <p id='date' class='date'>${now.getDate()}/${now.getMonth()}/${now.getFullYear()}</p>
     </div>
