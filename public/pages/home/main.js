@@ -5,6 +5,7 @@ import {
   editAndSavePost,
   likePosts,
   signOut,
+  //hashProfile,
 } from './data.js';
 
 export const home = () => {
@@ -19,7 +20,7 @@ export const home = () => {
   </label >
   <nav class='nav'>
   <ul class='ul'>
-    <li class='li-link'><a class='link'>Perfil</a></li>
+    <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
     <li class='li-link'>
     <a class='link'>
     <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out'>
@@ -28,29 +29,37 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
-  </div>
-<form method='post' class='form-home'>
-  <div id='input-post' class='input-post'>
-    <div id='div-perfil' class='div-perfil'>
-      <img src='imagens/coqueiro-logo.png' class='logo-home'>
+  <!--<ul>
+    <li>
+      <select id='profile'>
+      <option selected disabled>Fulana</option>
+      <option id='edit-profile'>Editar Perfil<option>
+      </select>
+    </li>
+  </ul>-->
+ </div>
+ <form method='post' class='form-home'>
+ <div id='input-post' class='input-post'>
+   <div id='div-perfil' class='div-perfil'>
+     <img src='imagens/coqueiro-logo.png' class='logo-home'>
     <img class='wave' src='imagens/perfil-avatar.png'>
-    </div>
-  </div>
-<div id='div-form' class='div-form'>
-  <img class='wave' src='imagens/perfil-avatar.png'>
-  <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
-<div id='container-private' class='container-private'>
-  <div id='btn-post' class='btn-post'>
-    <button id='send-post' class='send-post icon-post'>✈️</button>
-    <button id='photo' class='photo icon-post'>📸</button>
-  </div>
-  <select id='input-private' class='input-private' name='input-private'>
-    <option id='public' class='public'>Público</option>
-    <option id='private' class='private' selected>Privado</option>
-  </select>
-  </div>
-  <div id='all-posts' class='all-posts'></div>
-  </div>
+   </div>
+ </div>
+ <div id='div-form' class='div-form'>
+ <img class='wave' src='imagens/perfil-avatar.png'>
+ <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+ <div id='container-private' class='container-private'>
+   <div id='btn-post' class='btn-post'>
+     <button id='send-post' class='send-post icon-post'>✈️</button>
+     <button id='photo' class='photo icon-post'>📸</button>
+   </div>
+   <select id='input-private' class='input-private' name='input-private'>
+     <option id='public' class='public'>Público</option>
+     <option id='private' class='private' selected>Privado</option>
+   </select>
+ </div>
+ <div id='all-posts' class='all-posts'></div>
+ </div>
 </form>
   `;
 
@@ -59,7 +68,7 @@ export const home = () => {
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
   const exit = container.querySelector('#sign-out');
-  // const editProfile = container.querySelector('#edit-profile');
+  //const editProfile = container.querySelector('#edit-profile');
   const menu = container.querySelector('#icon');
 
   sendBtn.addEventListener('click', (event) => {
@@ -77,7 +86,7 @@ export const home = () => {
 
   /*editProfile.addEventListener('click', (event) => {
   event.preventDefault();
-  profile();
+  hashProfile();
 });*/
 
   const postTemplate = (post) => {
@@ -115,7 +124,7 @@ export const home = () => {
       `#curtida[data-id='${post.id}']`
     );
 
-    btnLikes.addEventListener('click',() => {
+    btnLikes.addEventListener('click', () => {
       const id = btnLikes.dataset.id;
       likePosts(id, post.data().likes);
       allPosts.innerHTML = '';
