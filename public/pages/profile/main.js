@@ -1,4 +1,4 @@
-import { createProfile, hashProfile } from './data.js'
+/*import { createProfile, hashProfile } from './data.js'
 
 export const profile = () => {
 
@@ -6,16 +6,7 @@ export const profile = () => {
   conteudo.classList.add('conteudo');
 
   conteudo.innerHTML = `
-  <nav class='nav'>
-      <ul>
-        <li>
-          <select id='profile'>
-          <option selected disabled>Fulana</option>
-          <option id='edit-profile'>Editar Perfil<option>
-          </select>
-        </li>
-      </ul>
-    </nav>
+  
   `
   const editP = conteudo.querySelector('#edit-profile')
   
@@ -26,4 +17,17 @@ export const profile = () => {
   })
 
 return conteudo;
-}
+};*/
+
+/*export const profile = () => {
+const conteudo = document.createElement('div');
+  conteudo.classList.add('conteudo');
+
+  conteudo.innerHTML = `
+  <div>
+  <p>EM CONSTRUÇÃO</p>
+  
+  </div>
+  `
+  return conteudo;
+};*/

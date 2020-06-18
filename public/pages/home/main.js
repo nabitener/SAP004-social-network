@@ -5,6 +5,7 @@ import {
   editAndSavePost,
   likePosts,
   signOut,
+  //hashProfile,
 } from './data.js';
 
 export const home = () => {
@@ -19,7 +20,7 @@ export const home = () => {
   </label >
   <nav class='nav'>
   <ul class='ul'>
-    <li class='li-link'><a class='link'>Perfil</a></li>
+    <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
     <li class='li-link'>
     <a class='link'>
     <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
@@ -97,7 +98,7 @@ export const home = () => {
 
   /*editProfile.addEventListener('click', (event) => {
   event.preventDefault();
-  profile();
+  hashProfile();
 });*/
 
   const postTemplate = (post) => {
