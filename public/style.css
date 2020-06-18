@@ -72,10 +72,8 @@ body {
   width: 100%;
   height: 100px;
   padding: 10px;
-  margin-left: 10px;
   margin-top: 10px;
   font-size: 16px;
-  align-self: center;
   background-color: wheat;
 }
 .btn-post {
@@ -208,6 +206,9 @@ justify-content: flex-end;
 }
 .text-p {
   color: white;
+}
+.div-form{
+  width: 100%;
 }
 .all-posts{
   margin: 5px;
@@ -342,6 +343,9 @@ justify-content: flex-end;
   position: absolute;
   width: 100%;
 }
+.div-perfil{
+  display: none;
+} 
 
 @media screen and (min-width: 1000px) {
   .div-container {
@@ -357,7 +361,7 @@ justify-content: flex-end;
     height: 200%;
   }
   .input-private {
-    width: 10%;
+    width: 20%;
     margin-right: 10px;
   }
   .out{
@@ -465,19 +469,15 @@ justify-content: flex-end;
 }
 .input-post{
   flex-direction: row;
-  height: 200px;
-  justify-content: space-between;
+  width: 20%;
+  justify-content: center;
 }
 .post {
-  width: 60%;
-  align-self: flex-end;
+  width: 95%;
+  margin-left: 10px;
 }
 .wave{
   width: 20%;
-}
-.container-private {
-  justify-content: flex-end;
-  margin-right: -1px;
 }
 .send-post,
 .photo {
@@ -488,7 +488,28 @@ justify-content: flex-end;
   border: gray solid 1px;
   font-size: 12px;
 }
+.form-home{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+.div-form{
+  width: 40%;
+}
+.logo-home{
+  width: 20%;
+}
+.div-perfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+  border: 1px solid white;
+}
+
+
+}
+
 /* Paleta de cores */
 .TripCard---Trade-Turismo-1-rgba {
   color: rgb(2, 62, 140);
