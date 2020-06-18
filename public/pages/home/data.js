@@ -57,7 +57,7 @@ export const signOut = () => {
     .auth()
     .signOut()
     .then(() => {
-      window.location.hash = '#login';
+      window.location.hash = 'login';
     });
   };
 
