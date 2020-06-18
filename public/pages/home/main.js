@@ -115,7 +115,7 @@ export const home = () => {
       `#curtida[data-id='${post.id}']`
     );
 
-    btnLikes.addEventListener('click', () => {
+    btnLikes.addEventListener('click',() => {
       const id = btnLikes.dataset.id;
       likePosts(id, post.data().likes);
       allPosts.innerHTML = '';

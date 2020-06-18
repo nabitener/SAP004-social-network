@@ -310,6 +310,7 @@ justify-content: flex-end;
 }
 .check:checked ~ .nav{
   transform: translateX(300px);
+  cursor: pointer;
 }
 .app-name-home{
   font-size: 20px;
@@ -336,6 +337,7 @@ justify-content: flex-end;
   position: absolute;
   z-index: 1;
   height: 48px;
+  cursor: pointer;
 }
 .ul{
   background-color:wheat;
