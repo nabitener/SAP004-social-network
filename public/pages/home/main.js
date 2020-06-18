@@ -28,37 +28,29 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
-  <!--<ul>
-    <li>
-      <select id='profile'>
-      <option selected disabled>Fulana</option>
-      <option id='edit-profile'>Editar Perfil<option>
-      </select>
-    </li>
-  </ul>-->
- </div>
- <form method='post' class='form-home'>
- <div id='input-post' class='input-post'>
-   <div id='div-perfil' class='div-perfil'>
-     <img src='imagens/coqueiro-logo.png' class='logo-home'>
+  </div>
+<form method='post' class='form-home'>
+  <div id='input-post' class='input-post'>
+    <div id='div-perfil' class='div-perfil'>
+      <img src='imagens/coqueiro-logo.png' class='logo-home'>
     <img class='wave' src='imagens/perfil-avatar.png'>
-   </div>
- </div>
- <div id='div-form' class='div-form'>
- <img class='wave' src='imagens/perfil-avatar.png'>
- <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
- <div id='container-private' class='container-private'>
-   <div id='btn-post' class='btn-post'>
-     <button id='send-post' class='send-post icon-post'>✈️</button>
-     <button id='photo' class='photo icon-post'>📸</button>
-   </div>
-   <select id='input-private' class='input-private' name='input-private'>
-     <option id='public' class='public'>Público</option>
-     <option id='private' class='private' selected>Privado</option>
-   </select>
- </div>
- <div id='all-posts' class='all-posts'></div>
- </div>
+    </div>
+  </div>
+<div id='div-form' class='div-form'>
+  <img class='wave' src='imagens/perfil-avatar.png'>
+  <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+<div id='container-private' class='container-private'>
+  <div id='btn-post' class='btn-post'>
+    <button id='send-post' class='send-post icon-post'>✈️</button>
+    <button id='photo' class='photo icon-post'>📸</button>
+  </div>
+  <select id='input-private' class='input-private' name='input-private'>
+    <option id='public' class='public'>Público</option>
+    <option id='private' class='private' selected>Privado</option>
+  </select>
+  </div>
+  <div id='all-posts' class='all-posts'></div>
+  </div>
 </form>
   `;
 
