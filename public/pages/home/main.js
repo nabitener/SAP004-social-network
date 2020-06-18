@@ -1,4 +1,11 @@
-import { createPost, readPosts, deletePost, editAndSavePost, likePosts, signOut } from './data.js';
+import {
+  createPost,
+  readPosts,
+  deletePost,
+  editAndSavePost,
+  likePosts,
+  signOut,
+} from './data.js';
 
 export const home = () => {
   const container = document.createElement('div');
@@ -13,7 +20,11 @@ export const home = () => {
   <nav class='nav'>
   <ul class='ul'>
     <li class='li-link'><a class='link'>Perfil</a></li>
-    <li class='li-link'><a class='link'>Logout</a></li>
+    <li class='li-link'>
+    <a class='link'>
+    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out'>
+    </a>
+    </li>
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
@@ -25,28 +36,30 @@ export const home = () => {
       </select>
     </li>
   </ul>-->
-  <div class='out'>
-    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out'>
-  </div>
-  <div class="btn-back"></div>
-  </div>
-  <form method='post'>
-    <div id='input-post' class='input-post'>
-      <img class='wave' src='imagens/perfil-avatar.png'>
-      <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
-    </div>
-    <div id='container-private' class='container-private'>
-      <div id='btn-post' class='btn-post'>
-        <button id='send-post' class='send-post icon-post'>✈️</button>
-        <button id='photo' class='photo icon-post'>📸</button>
-      </div>
-      <select id='input-private' class='input-private' name='input-private'>
-        <option id='public' class='public'>Público</option>
-        <option id='private' class='private' selected>Privado</option>
-      </select>
-    </div>
-    <div id='all-posts' class='all-posts'></div>
-  </form>
+ </div>
+ <form method='post' class='form-home'>
+ <div id='input-post' class='input-post'>
+   <div id='div-perfil' class='div-perfil'>
+     <img src='imagens/coqueiro-logo.png' class='logo-home'>
+    <img class='wave' src='imagens/perfil-avatar.png'>
+   </div>
+ </div>
+ <div id='div-form' class='div-form'>
+ <img class='wave' src='imagens/perfil-avatar.png'>
+ <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+ <div id='container-private' class='container-private'>
+   <div id='btn-post' class='btn-post'>
+     <button id='send-post' class='send-post icon-post'>✈️</button>
+     <button id='photo' class='photo icon-post'>📸</button>
+   </div>
+   <select id='input-private' class='input-private' name='input-private'>
+     <option id='public' class='public'>Público</option>
+     <option id='private' class='private' selected>Privado</option>
+   </select>
+ </div>
+ <div id='all-posts' class='all-posts'></div>
+ </div>
+</form>
   `;
 
   const post = container.querySelector('#post');
@@ -54,7 +67,7 @@ export const home = () => {
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
   const exit = container.querySelector('#sign-out');
- // const editProfile = container.querySelector('#edit-profile');
+  // const editProfile = container.querySelector('#edit-profile');
   const menu = container.querySelector('#icon');
 
   sendBtn.addEventListener('click', (event) => {
@@ -65,12 +78,12 @@ export const home = () => {
     readPosts(postTemplate, postTemplateUser);
   });
 
-exit.addEventListener('click', (event) => {
-  event.preventDefault();
-  signOut();
-});
+  exit.addEventListener('click', (event) => {
+    event.preventDefault();
+    signOut();
+  });
 
-/*editProfile.addEventListener('click', (event) => {
+  /*editProfile.addEventListener('click', (event) => {
   event.preventDefault();
   profile();
 });*/
@@ -219,5 +232,3 @@ exit.addEventListener('click', (event) => {
 
   return container;
 };
-
-

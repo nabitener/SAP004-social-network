@@ -1,6 +1,6 @@
 import { createProfile, hashProfile } from './data.js'
 
-export const perfil = () => {
+export const profile = () => {
 
   const conteudo = document.createElement('div');
   conteudo.classList.add('conteudo');
