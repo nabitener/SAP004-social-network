@@ -23,7 +23,7 @@ export const home = () => {
     <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
     <li class='li-link'>
     <a class='link'>
-    <input type='image' src='imagens/sign-out.png' class='signout' id='sign-out'>
+    <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
     </a>
     </li>
   </ul>
@@ -38,11 +38,22 @@ export const home = () => {
     </li>
   </ul>-->
  </div>
+ <div class='menu-desk'>
+ <div class='perfil-desk'><a class='link-desk'>Perfil</a></li></div>
+ <div class='app-name-home-desk'>Travel Time</div>
+ <a class='link-desk'>
+  <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
+  </a>
+ </div>
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
    <div id='div-perfil' class='div-perfil'>
-     <img src='imagens/coqueiro-logo.png' class='logo-home'>
-    <img class='wave' src='imagens/perfil-avatar.png'>
+   <div class='div-logo-home'> 
+   <img src='imagens/coqueiro-logo.png' class='logo-home'>
+   </div>
+   <div class='div-wave-desk'>
+    <img class='wave-desk' src='imagens/perfil-avatar.png'>
+   </div>
    </div>
  </div>
  <div id='div-form' class='div-form'>
@@ -67,8 +78,8 @@ export const home = () => {
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
-  const exit = container.querySelector('#sign-out');
-  //const editProfile = container.querySelector('#edit-profile');
+  const exit = container.querySelector(`[data-id='sign-out']`);
+  // const editProfile = container.querySelector('#edit-profile');
   const menu = container.querySelector('#icon');
 
   sendBtn.addEventListener('click', (event) => {
@@ -80,6 +91,7 @@ export const home = () => {
   });
 
   exit.addEventListener('click', (event) => {
+    console.log('clicou')
     event.preventDefault();
     signOut();
   });
@@ -98,17 +110,13 @@ export const home = () => {
     <div id='container-name' class='container-name'>
     <div id='div-name' class='div-name'>${post.data().name}</div>
     </div>
-    <textarea id='text-post' data-id='${post.id}' class='text-post' disabled>${
+    <textarea data-id='${post.id}' class='text-post' disabled>${
       post.data().text
     }</textarea>
     <div id='div-container-btn' class='div-container-btn'>
     <div id='div-btn' class='div-btn'>
-    <button id='curtida' data-id='${post.id}' class='curtida icon-post'>❤️${
-      post.data().likes
-    }</button>
-    <button id='comentar' class='comentar icon-post'>💬${
-      post.data().coments
-    }</button>
+    <button data-id='${post.id}' class='curtida icon-post'>❤️${post.data().likes}</button>
+    <button data-id='${post.id}' class='comentar icon-post'>💬${post.data().coments}</button>
     </div>
     <div id='div-date' class=div-date>
     <p id='privaty' class='privaty'>${post.data().privacy}</p>
@@ -121,7 +129,7 @@ export const home = () => {
     allPosts.appendChild(spaceTemplate);
 
     const btnLikes = spaceTemplate.querySelector(
-      `#curtida[data-id='${post.id}']`
+      `.curtida[data-id='${post.id}']`
     );
 
     btnLikes.addEventListener('click', () => {
@@ -146,17 +154,11 @@ export const home = () => {
     <button id='delete' data-id='${post.id}' class='delete'>❌</button>
     </div>
     </div>
-    <textarea id='text-post-user' data-id='${
-      post.id
-    }' class='text-post' disabled>${post.data().text}</textarea>
+    <textarea data-id='${post.id}' class='text-post' disabled>${post.data().text}</textarea>
     <div id='div-container-btn' class='div-container-btn'>
     <div id='div-btn' class='div-btn'>
-    <button id='curtida-user' data-id='${
-      post.id
-    }' class='curtida icon-post'>❤️${post.data().likes}</button>
-    <button id='comentar-user' class='comentar icon-post'>💬${
-      post.data().coments
-    }</button>
+    <button data-id='${post.id}' class='curtida icon-post'>❤️${post.data().likes}</button>
+    <button data-id='${post.id}' class='comentar icon-post'>💬${post.data().coments}</button>
     </div>
     <select id='private' class='select-private' name='input-private'>
       <option id='option-public' class='public'>Público</option> 
@@ -175,14 +177,14 @@ export const home = () => {
     const btnSave = spaceTemplate.querySelector('#save');
     const btnEdit = spaceTemplate.querySelector('#edit');
     const editText = spaceTemplate.querySelector(
-      `#text-post-user[data-id='${post.id}']`
+      `.text-post[data-id='${post.id}']`
     );
     const selectPrivate = spaceTemplate.querySelector('#private');
     const btnDelete = spaceTemplate.querySelector(
       `#delete[data-id='${post.id}']`
     );
     const btnLikes = spaceTemplate.querySelector(
-      `#curtida-user[data-id='${post.id}']`
+      `.curtida[data-id='${post.id}']`
     );
     const btnComentar = spaceTemplate.querySelector('#comentar-user');
 
