@@ -1,3 +1,3 @@
-export const profile = () => {
+/*export const profile = () => {
     window.location.hash = '#profile';
-};
+};*/

@@ -5,7 +5,6 @@ import {
   editAndSavePost,
   likePosts,
   signOut,
-  profile,
 } from './data.js';
 
 export const home = () => {
@@ -87,16 +86,14 @@ export const home = () => {
     event.preventDefault();
     signOut();
   });
+const profile = () => {
+    window.location.hash = '#profile';
+};
 
   editProfile.addEventListener('click', (event) => {
     event.preventDefault();
     profile();
   });
-
-  //PASSAR PRO DATA.JS
-  /*export const profile = () => {
-  window.location.hash = '#profile';
-};*/
 
   const postTemplate = (post) => {
     const now = new Date();
