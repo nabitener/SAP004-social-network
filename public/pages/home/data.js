@@ -4,7 +4,9 @@ export const createPost = (post, privacyPost) => {
     .collection('post')
     .add({
       name: firebase.auth().currentUser.email,
-      timestamps: firebase.firestore.Timestamp.fromDate(new Date()).toDate().toLocaleString('pt-BR'),
+      timestamps: firebase.firestore.Timestamp.fromDate(new Date())
+        .toDate()
+        .toLocaleString('pt-BR'),
       text: post,
       user_id: firebase.auth().currentUser.uid,
       likes: 0,
@@ -20,29 +22,29 @@ export const createPost = (post, privacyPost) => {
 };
 
 export const readPosts = (callback, callbackUser) => {
-    firebase
-    .firestore()
-    .collection('post')
-    .orderBy('timestamps', 'desc')
-    .limit(20)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((post) => {
-        if (
-          post.data().privacy === 'Público' || post.data().user_id === firebase.auth().currentUser.uid
-        ) {
-          if(post.data().user_id !== firebase.auth().currentUser.uid) {
-            callback(post);
-          }else{
-            callbackUser(post);
-          }
+  firebase
+  .firestore()
+  .collection('post')
+  .orderBy('timestamps', 'desc')
+  .limit(20)
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((post) => {
+      if (
+        post.data().privacy === 'Público' || post.data().user_id === firebase.auth().currentUser.uid
+      ) {
+        if(post.data().user_id === firebase.auth().currentUser.uid) {
+          callbackUser(post);
+        }else{
+          callback(post);
         }
-      });
+      }
     });
+  });
 };
 
 export const deletePost = (postId) => {
-    firebase.firestore().collection('post').doc(postId).delete().then();
+  firebase.firestore().collection('post').doc(postId).delete();
 };
 
 export const editAndSavePost = (id, post, privacyPost) => {
@@ -59,12 +61,16 @@ export const signOut = () => {
     .then(() => {
       window.location.hash = 'login';
     });
-  };
+};
 
 export const likePosts = (id, likes) => {
-  firebase.firestore().collection('post').doc(id).update({
-    likes: likes + 1 ,
-  });
+  firebase
+    .firestore()
+    .collection('post')
+    .doc(id)
+    .update({
+      likes: likes + 1,
+    });
 };
 
 /*export const profile = () => {

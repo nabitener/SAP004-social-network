@@ -142,9 +142,8 @@ body {
   border-radius: 5px;
 }
 .wave {
-  width: 50%;
-  margin-top: 10px;
-  align-self: center;
+  width: 40%;
+  margin-top: 30px;
 }
 .delete,
 .edit,
@@ -209,6 +208,7 @@ body {
 }
 .div-form {
   width: 100%;
+  background-color: rgba(14, 60, 89, 1);
 }
 .all-posts {
   margin: 5px;
@@ -314,6 +314,7 @@ body {
 }
 .app-name-home {
   font-size: 20px;
+  height: 100%;
   text-align: center;
   padding-top: 10px;
 }
@@ -324,6 +325,10 @@ body {
   border-bottom: white;
   font-size: 20px;
   font-weight: bold;
+}
+.div-photo{
+  border-bottom: 1px solid white;
+  text-align: center;
 }
 .li-link {
   border-bottom: 1px solid white;
@@ -348,10 +353,16 @@ body {
 .div-perfil {
   display: none;
 }
-.menu-desk{
+.li-link-name{
   display: none;
 }
-
+.input-post-photo{
+background-color: wheat;
+margin-left: 5px;
+margin-right: 5px;
+border-radius: 5px;
+margin-top: 10px;
+}
 @media screen and (min-width: 1000px) {
   .div-container {
     flex-direction: row;
@@ -424,9 +435,11 @@ body {
     padding: 10px;
     font-size: 16px;
   }
-  .send-post,
-  .photo {
+  .send-post{
     width: 20%;
+  }
+  .photo {
+    width: 100%;
   }
   .btn-create {
     border-radius: 10px;
@@ -498,6 +511,7 @@ body {
     flex-direction: row;
     justify-content: center;
     margin-top: 50px;
+    
   }
   .div-form {
     width: 40%;
@@ -522,29 +536,48 @@ body {
     margin-top: 10px;
     border-radius: 5px;
   }
-  .menu {
-    display: none;
-  }
-  .menu-desk {
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(242, 110, 33, 1);
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
-  }
-  .app-name-home-desk, .link-desk {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .link-desk{
-    color: white;
-    margin-left: 5px;
-    height: 50px;
-  }
   .select-private{
     width: 20%;
   }
+  .app-name-home{
+    display: none;
+  }
+  .nav{
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+    position: relative;
+    margin: 0;
+    height: 50px;
+    width: 100%;
+  }
+  .label-icone{
+    display: none;
+  }
+  .ul{
+    display: flex;
+    position: static;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(242, 110, 33, 1);
+  }
+  .li-link-name{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .li-link{
+    border: none;
+  }
+  .link{
+    padding: 0;
+    margin-left: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
 }
 
 /* Paleta de cores */
