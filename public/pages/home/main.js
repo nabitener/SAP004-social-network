@@ -5,7 +5,7 @@ import {
   editAndSavePost,
   likePosts,
   signOut,
-  //hashProfile,
+  profile,
 } from './data.js';
 
 export const home = () => {
@@ -20,7 +20,7 @@ export const home = () => {
   </label >
   <nav class='nav'>
   <ul class='ul'>
-    <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
+    <button class='li-link' id='edit-profile'>Perfil</button>
     <li class='li-link'>
     <a class='link'>
     <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
@@ -29,17 +29,9 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
-  <!--<ul>
-    <li>
-      <select id='profile'>
-      <option selected disabled>Fulana</option>
-      <option id='edit-profile'>Editar Perfil<option>
-      </select>
-    </li>
-  </ul>-->
  </div>
  <div class='menu-desk'>
- <div class='perfil-desk'><a class='link-desk'>Perfil</a></li></div>
+ <button class='perfil-desk' id='edit-profile'>Perfil</button>
  <div class='app-name-home-desk'>Travel Time</div>
  <a class='link-desk'>
   <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
@@ -79,7 +71,7 @@ export const home = () => {
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
   const exit = container.querySelector(`[data-id='sign-out']`);
-  // const editProfile = container.querySelector('#edit-profile');
+  const editProfile = container.querySelector('#edit-profile');
   const menu = container.querySelector('#icon');
 
   sendBtn.addEventListener('click', (event) => {
@@ -96,10 +88,15 @@ export const home = () => {
     signOut();
   });
 
-  /*editProfile.addEventListener('click', (event) => {
-  event.preventDefault();
-  hashProfile();
-});*/
+  editProfile.addEventListener('click', (event) => {
+    event.preventDefault();
+    profile();
+  });
+
+  //PASSAR PRO DATA.JS
+  /*export const profile = () => {
+  window.location.hash = '#profile';
+};*/
 
   const postTemplate = (post) => {
     const now = new Date();
