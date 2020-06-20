@@ -29,39 +29,43 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
- <form method='post' class='form-home'>
- <div id='input-post' class='input-post'>
-   <div id='div-perfil' class='div-perfil'>
-   <div class='div-logo-home'> 
-   <img src='imagens/coqueiro-logo.png' class='logo-home'>
-   </div>
-   <div class='div-wave-desk'>
+  <form method='post' class='form-home'>
+  <div id='input-post' class='input-post'>
+  <div id='div-perfil' class='div-perfil'>
+  <div class='cover-photo'> 
+  <img src='imagens/coqueiro-logo.png' class='logo-home'>
+  </div>
+  <div class='div-wave-desk' id='desk'>
+    <p class='infos' id='user-name'>fulana</p>
     <img class='wave-desk' src='imagens/perfil-avatar.png'>
-   </div>
-   </div>
- </div>
- <div id='div-form' class='div-form'>
- <img class='wave' src='imagens/perfil-avatar.png'>
- <div class='input-post-photo'>
- <div class='div-photo'>
+    <label for='profile-photo'> 
+      <img src='imagens/camera.png' class='camera' id='camera'/>
+    </label>
+      <input type='file' name='user-photo' id='profile-photo' accept='.jpg, .jpeg, .png' style='display:none;'>
+    <p class='infos' id='bio'>Breve descrição sobre você</p>
+  </div>
+  </div>
+</div>
+<div id='div-form' class='div-form'>
+<img class='wave' src='imagens/perfil-avatar.png'>
+<div class='input-post-photo'>
+<div class='div-photo'>
   <img src='' height='100'class='imgPreview'>
   <input type='file' class='photo' accept='image/png, image/jpeg, image/jpg'/> 
 </div>
- <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
- </div>
- <div id='container-private' class='container-private'>
-   <button id='send-post' class='send-post icon-post'>✈️</button>
-   <select id='input-private' class='input-private' name='input-private'>
-     <option id='public' class='public'>Público</option>
-     <option id='private' class='private' selected>Privado</option>
-   </select>
- </div>
- 
- <div id='all-posts' class='all-posts'></div>
- </div>
+  <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
+</div>
+<div id='container-private' class='container-private'>
+  <button id='send-post' class='send-post icon-post'>✈️</button>
+  <select id='input-private' class='input-private' name='input-private'>
+    <option id='public' class='public'>Público</option>
+    <option id='private' class='private' selected>Privado</option>
+  </select>
+</div>
+<div id='all-posts' class='all-posts'></div>
+  </div>
 </form>
-  `
- ;
+  `;
 
   const post = container.querySelector('#post');
   const sendBtn = container.querySelector('#send-post');
@@ -70,6 +74,14 @@ export const home = () => {
   const exit = container.querySelector('.signout');
   const photo = container.querySelector('.photo');
   const editProfile = container.querySelector('#edit-profile');
+  const bio = container.querySelector('#bio')
+
+
+
+  bio.addEventListener('click', (event) => {
+    event.preventDefault();
+    profile();
+  })
 
   photo.addEventListener('change', (event) => {
     let preview = container.querySelector('.imgPreview');

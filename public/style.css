@@ -83,6 +83,9 @@ body {
   height: 40px;
   width: 50%;
 }
+/*.camera{
+  width: 20%;
+}*/
 .div-btn {
   display: flex;
   width: 50%;
@@ -356,7 +359,6 @@ body {
 }
 .li-link-name{
   display: none;
-  cursor: pointer;
 }
 .input-post-photo{
 background-color: wheat;
@@ -520,10 +522,6 @@ margin-top: 10px;
   .logo-home {
     width: 20%;
   }
-  .div-logo-home {
-    height: 50%;
-    width: 100%;
-  }
   .div-wave-desk {
     height: 60%;
     width: 100%;
@@ -539,6 +537,10 @@ margin-top: 10px;
   }
   .select-private{
     width: 20%;
+  }
+  .camera{
+    width: 15%;
+    cursor: pointer;
   }
   .app-name-home{
     display: none;
