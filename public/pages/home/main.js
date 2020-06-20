@@ -19,13 +19,8 @@ export const home = () => {
   </label >
   <nav class='nav'>
   <ul class='ul'>
-
-    <li class='li-link'><a class='link'>Perfil</a></li>
+    <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
     <li class='li-link-name'>Travel Time</a></li>
-    <!--<li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>-->
-
-    <button class='li-link' id='edit-profile'>Perfil</button>
-
     <li class='li-link'>
     <a class='link'>
     <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
@@ -34,14 +29,6 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
- </div>
- <div class='menu-desk'>
- <button class='perfil-desk' id='edit-profile'>Perfil</button>
- <div class='app-name-home-desk'>Travel Time</div>
- <a class='link-desk'>
-  <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
-  </a>
- </div>
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
    <div id='div-perfil' class='div-perfil'>
@@ -82,7 +69,7 @@ export const home = () => {
   const privacyPost = container.querySelector('#input-private');
   const exit = container.querySelector('.signout');
   const photo = container.querySelector('.photo');
-  // const editProfile = container.querySelector('#edit-profile');
+  const editProfile = container.querySelector('#edit-profile');
 
   photo.addEventListener('change', (event) => {
     let preview = container.querySelector('.imgPreview');
@@ -93,7 +80,7 @@ export const home = () => {
     }
   });
 
-  function postImage () {
+ /* function postImage () {
     const fileInput = container.querySelector('.photo');
     fileInput.addEventListener('change', (e) => {
       e.preventDefault();
@@ -105,8 +92,8 @@ export const home = () => {
         return url
       })
     })
-  })};
-  
+  })};*/
+
   sendBtn.addEventListener('click', (event) => {
     event.preventDefault();
     createPost(post.value, privacyPost.value);
@@ -121,19 +108,15 @@ export const home = () => {
     event.preventDefault();
     signOut();
   });
-const profile = () => {
-    window.location.hash = '#profile';
-};
 
   editProfile.addEventListener('click', (event) => {
-    event.preventDefault();
-    profile();
-  });
+  event.preventDefault();
+  profile();
+});
 
-  //PASSAR PRO DATA.JS
-  /*export const profile = () => {
+  const profile = () => {
   window.location.hash = '#profile';
-};*/
+};
 
 const postTemplate = (post) => {
   const now = new Date();
