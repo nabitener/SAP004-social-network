@@ -31,14 +31,14 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
-  <!--<ul>
-    <li>
-      <select id='profile'>
-      <option selected disabled>Fulana</option>
-      <option id='edit-profile'>Editar Perfil<option>
-      </select>
-    </li>
-  </ul>-->
+ </div>
+ <div class='menu-desk'>
+ <button class='perfil-desk' id='edit-profile'>Perfil</button>
+ <div class='app-name-home-desk'>Travel Time</div>
+ <a class='link-desk'>
+  <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
+  </a>
+ </div>
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
    <div id='div-perfil' class='div-perfil'>
@@ -92,6 +92,7 @@ export const home = () => {
     postImage(photo, validarUrl);
   });
 
+
   const validarUrl = (url) => {
     preview.src = '';
     preview.src = url;
@@ -111,10 +112,15 @@ export const home = () => {
     signOut();
   });
 
-  /*editProfile.addEventListener('click', (event) => {
-  event.preventDefault();
-  hashProfile();
-});*/
+  editProfile.addEventListener('click', (event) => {
+    event.preventDefault();
+    profile();
+  });
+
+  //PASSAR PRO DATA.JS
+  /*export const profile = () => {
+  window.location.hash = '#profile';
+};*/
 
   const postTemplate = (post) => {
     const now = new Date();
