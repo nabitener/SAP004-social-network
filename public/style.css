@@ -83,7 +83,7 @@ body {
   height: 40px;
   width: 50%;
 }
-/*.camera{
+/*.user{
   width: 20%;
 }*/
 .div-btn {
@@ -232,7 +232,10 @@ body {
   font-weight: bold;
   font-size: 30px;
 }
-.input-login {
+.input-login,
+.new-name,
+.bio,
+.btn-profile{
   border: gray solid 1px;
   border-radius: 20px;
   width: 100%;
@@ -240,13 +243,32 @@ body {
   padding: 10px;
   font-size: 14px;
 }
+.new-name,
+.bio,
+.btn-profile {
+  font-family: 'Quicksand', sans-serif;
+  width: 15%;
+}
+.bio {
+  width: 20%;
+  height: 90px;
+}
+.btn-profile {
+  width: 10%;
+  font-weight: bold;
+}
 .input-register:hover {
   cursor: pointer;
 }
+.cover-photo {
+  width: 40%;
+}
 .button-login:hover,
-.btn-record:hover {
+.btn-record:hover,
+.btn-profile:hover {
   background-color: rgba(242, 110, 33, 1);
   color: white;
+  cursor: pointer;
 }
 .button-login,
 .btn-record {
@@ -361,11 +383,11 @@ body {
   display: none;
 }
 .input-post-photo{
-background-color: wheat;
-margin-left: 5px;
-margin-right: 5px;
-border-radius: 5px;
-margin-top: 10px;
+  background-color: wheat;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 @media screen and (min-width: 1000px) {
   .div-container {
@@ -538,8 +560,8 @@ margin-top: 10px;
   .select-private{
     width: 20%;
   }
-  .camera{
-    width: 15%;
+  .user{
+    width: 50%;
     cursor: pointer;
   }
   .app-name-home{

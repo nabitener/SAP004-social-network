@@ -33,17 +33,19 @@ export const home = () => {
   <div id='input-post' class='input-post'>
   <div id='div-perfil' class='div-perfil'>
   <div class='cover-photo'> 
-  <img src='imagens/coqueiro-logo.png' class='logo-home'>
+  <!--<img src='imagens/heart-logo.jpg' class='cover-photo'>-->
   </div>
   <div class='div-wave-desk' id='desk'>
     <p class='infos' id='user-name'>fulana</p>
-    <img class='wave-desk' src='imagens/perfil-avatar.png'>
     <label for='profile-photo'> 
-      <img src='imagens/camera.png' class='camera' id='camera'/>
+      <img src='https://via.placeholder.com/150' class='user' id='img'/>
     </label>
-      <input type='file' name='user-photo' id='profile-photo' accept='.jpg, .jpeg, .png' style='display:none;'>
-    <p class='infos' id='bio'>Breve descrição sobre você</p>
-  </div>
+    <input type='file' name='user-photo' id='profile-photo' accept='.jpg, .jpeg, .png'>
+      <img id='image'/>
+      <button id='up'>Upload</button>
+      <p class='infos' id='bio'>Breve descrição</p>
+      <button id='save-profile' class='save-profile'>Salvar</button>
+      </div>
   </div>
 </div>
 <div id='div-form' class='div-form'>
@@ -66,13 +68,29 @@ export const home = () => {
   </div>
 </form>
   `;
+  
+  /*const novaBio = container.querySelector('#bio').value
+  firebase.firestore().collection('profile')
+  .update()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) =>{
+      firebase.firestore().collection('profile').doc(doc.id).update({
+        bio: novaBio
+      })
+    })
+  })*/
+  
+
+
+
+
 
   const post = container.querySelector('#post');
   const sendBtn = container.querySelector('#send-post');
   const allPosts = container.querySelector('#all-posts');
   const privacyPost = container.querySelector('#input-private');
   const exit = container.querySelector('.signout');
-  const photo = container.querySelector('.photo');
+  //const photo = container.querySelector('.photo');
   const editProfile = container.querySelector('#edit-profile');
   const bio = container.querySelector('#bio')
 
@@ -81,18 +99,19 @@ export const home = () => {
   bio.addEventListener('click', (event) => {
     event.preventDefault();
     profile();
-  })
+  });
 
-  photo.addEventListener('change', (event) => {
+  /*photo.addEventListener('change', (event) => {
     let preview = container.querySelector('.imgPreview');
     let file = event.target.files[0]
     preview.src = URL.createObjectURL(file);
     if(preview.src){
 
     }
-  });
+  });*/
+  
 
- /* function postImage () {
+  /* function postImage () {
     const fileInput = container.querySelector('.photo');
     fileInput.addEventListener('change', (e) => {
       e.preventDefault();
@@ -109,7 +128,7 @@ export const home = () => {
   sendBtn.addEventListener('click', (event) => {
     event.preventDefault();
     createPost(post.value, privacyPost.value);
-    postImage();
+    //postImage();
     post.value = '';
     allPosts.innerHTML = '';
     readPosts(postTemplate);
@@ -259,6 +278,7 @@ const postTemplateUser = (post) => {
     allPosts.innerHTML = '';
     readPosts(postTemplate, postTemplateUser);
   };
+
 };
 
 readPosts(postTemplate, postTemplateUser);
