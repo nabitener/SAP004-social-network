@@ -1,8 +1,9 @@
-export const createPost = (post, privacyPost) => {
+export const createPost = (post, privacyPost, url) => {
   firebase
     .firestore()
     .collection('post')
     .add({
+      imagem:url,
       name: firebase.auth().currentUser.email,
       timestamps: firebase.firestore.Timestamp.fromDate(new Date())
         .toDate()
@@ -71,6 +72,19 @@ export const likePosts = (id, likes) => {
     .update({
       likes: likes + 1,
     });
+};
+
+export const postImage = (photo, callback) => {
+  let file = photo.files[0];
+  let storageRef = firebase.storage().ref('imagens/' + file.name);
+
+   storageRef.put(file).then(() => {
+    storageRef.getDownloadURL().then((url) => {
+      console.log(url);
+      callback(url);    
+    });
+    
+  });
 };
 
 /*export const profile = () => {
