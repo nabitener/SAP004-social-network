@@ -282,10 +282,6 @@ export const home = () => {
       readPosts(postTemplate, postTemplateUser);
     };
   };
-
-};
-
-
   readPosts(postTemplate, postTemplateUser);
 
   return container;
