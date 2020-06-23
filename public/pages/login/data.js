@@ -20,4 +20,4 @@ export const signIn = (provider, callback) => {
     .catch((error) => {
       callback(error.message);
     });
-};
+}

@@ -84,6 +84,9 @@ body {
   height: 40px;
   width: 50%;
 }
+/*.user{
+  width: 20%;
+}*/
 .div-btn {
   display: flex;
   width: 50%;
@@ -230,7 +233,10 @@ body {
   font-weight: bold;
   font-size: 30px;
 }
-.input-login {
+.input-login,
+.new-name,
+.bio,
+.btn-profile{
   border: gray solid 1px;
   border-radius: 20px;
   width: 100%;
@@ -238,13 +244,32 @@ body {
   padding: 10px;
   font-size: 14px;
 }
+.new-name,
+.bio,
+.btn-profile {
+  font-family: 'Quicksand', sans-serif;
+  width: 15%;
+}
+.bio {
+  width: 20%;
+  height: 90px;
+}
+.btn-profile {
+  width: 10%;
+  font-weight: bold;
+}
 .input-register:hover {
   cursor: pointer;
 }
+.cover-photo {
+  width: 40%;
+}
 .button-login:hover,
-.btn-record:hover {
+.btn-record:hover,
+.btn-profile:hover {
   background-color: rgba(242, 110, 33, 1);
   color: white;
+  cursor: pointer;
 }
 .button-login,
 .btn-record {
@@ -334,6 +359,7 @@ body {
   text-align: center;
 }
 .li-link {
+  cursor: pointer;
   border-bottom: 1px solid white;
 }
 .link:hover {
@@ -362,6 +388,7 @@ body {
 .li-link-name {
   display: none;
 }
+
 .label-camera {
   cursor: pointer;
   z-index: 1;
@@ -570,7 +597,11 @@ body {
   .select-private {
     width: 20%;
   }
-  .app-name-home {
+  .user{
+    width: 50%;
+    cursor: pointer;
+  }
+  .app-name-home{
     display: none;
   }
   .nav {
