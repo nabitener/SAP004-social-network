@@ -6,7 +6,6 @@ import {
   likePosts,
   signOut,
   postImage,
-  //hashProfile,
 } from './data.js';
 
 export const home = () => {
@@ -31,6 +30,7 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
+
  </div>
  <div class='menu-desk'>
  <button class='perfil-desk' id='edit-profile'>Perfil</button>
@@ -113,14 +113,13 @@ export const home = () => {
   });
 
   editProfile.addEventListener('click', (event) => {
-    event.preventDefault();
-    profile();
-  });
+  event.preventDefault();
+  profile();
+});
 
-  //PASSAR PRO DATA.JS
-  /*export const profile = () => {
+  const profile = () => {
   window.location.hash = '#profile';
-};*/
+};
 
   const postTemplate = (post) => {
     const now = new Date();
@@ -286,7 +285,6 @@ export const home = () => {
       readPosts(postTemplate, postTemplateUser);
     };
   };
-
   readPosts(postTemplate, postTemplateUser);
 
   return container;

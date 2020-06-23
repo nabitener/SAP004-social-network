@@ -50,5 +50,14 @@ export const record = () => {
   }
   });
 
+  createUser.addEventListener('click', (event) => {
+    event.preventDefault();
+    firebase.firestore().collection('profile').add({
+      bio:'',
+      name: container.querySelector('#name').value,
+      user_id:firebase.auth().currentUser.uid
+    }).then(()=> console.log('foi'))
+  })
+
   return container;
 };
