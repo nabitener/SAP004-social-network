@@ -72,6 +72,9 @@ export const home = () => {
  <div id='all-posts' class='all-posts'></div>
  </div>
 </form>
+<footer class="rodape">
+    Developed by Aline Souza, Marcella Teliceski e Nathalia Bitener
+</footer>
   `;
 
   const post = container.querySelector('#post');

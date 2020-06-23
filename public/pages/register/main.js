@@ -19,7 +19,11 @@ export const record = () => {
       <input type='password' id='confirm-password' class='password input-register register-space' placeholder= 'Confirme a senha' required>
       <p id='error-message' class='error.message'></p>
       <button id='record' class='btn-record input-register'>Criar conta</button>
-    </form>`;
+    </form>
+    <footer class="rodape">
+    Developed by Aline Souza, Marcella Teliceski e Nathalia Bitener
+    </footer>
+    `;
 
   const email = container.querySelector('#email');
   const password = container.querySelector('#password');
