@@ -4,8 +4,8 @@ import { record } from './pages/register/main.js';
 //import { profile } from './pages/profile/main.js';
 
 export default {
-  login: login(),
-  record: record(),
-  home: home(),
+  login,
+  record,
+  home,
   //profile: profile(),
 };

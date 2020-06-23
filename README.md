@@ -2,39 +2,15 @@
 
 ## Índice
 
-* [1. Prefácio](#1-prefácio)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Entrega](#5-entrega)
-* [6. Guias, dicas e leituras
-  complementares](#6-guias-dicas-e-leituras-complementares)
+* [1. Resumo do projeto](#1-resumo-do-projeto)
+
+
 
 ***
 
-## 1. Prefácio
+## 1. Resumo do projeto
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
-invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
-viver sem elas.
 
-Há redes sociais de todo tipo para todos os tipos de interesse. Por exemplo: em
-uma rodada de financiamento com investidores, foi apresentada uma rede social
-para químicos onde os usuários podem publicar artigos a respeito de suas
-pesquisas, comentar os artigos de seus colegas e filtrar artigos de acordo com
-determinadas tags ou popularidade, mais recente ou mais comentado.
-
-## 2. Resumo do projeto
-
-Neste projeto você construirá uma rede social, cuja temática deixaremos ao seu critério.
-
-Aqui estão algumas ideias:
-
-- Alimentação
-- Feminismo
-- Educação
-- Saúde
-- Energias Renováveis
 
 As **caraterísticas técnicas** de sua aplicação serão:
 - Deve ser uma Single-Page Application [SPA](https://dzone.com/articles/how-single-page-web-applications-actually-work)
