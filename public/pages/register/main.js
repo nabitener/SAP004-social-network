@@ -1,4 +1,4 @@
-import { newUser } from './data.js';
+import { newUser} from './data.js';
 
 export const record = () => {
   const container = document.createElement('div');
@@ -26,6 +26,7 @@ export const record = () => {
     `;
 
   const email = container.querySelector('#email');
+  const name = container.querySelector('#name');
   const password = container.querySelector('#password');
   const newpassword = container.querySelector('#confirm-password');
   const createUser = container.querySelector('#record');
@@ -49,15 +50,6 @@ export const record = () => {
   newUser(email, password,inputError);
   }
   });
-
-  createUser.addEventListener('click', (event) => {
-    event.preventDefault();
-    firebase.firestore().collection('profile').add({
-      bio:'',
-      name: container.querySelector('#name').value,
-      user_id:firebase.auth().currentUser.uid
-    }).then(()=> console.log('foi'))
-  })
-
+  
   return container;
 };

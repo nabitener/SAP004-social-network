@@ -9,3 +9,4 @@ export const newUser = (email, password, callback) => {
       callback(error.message);
     });
 };
+

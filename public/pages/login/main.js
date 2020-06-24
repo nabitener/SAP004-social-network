@@ -17,9 +17,6 @@ export const login = () => {
   <input type='image' id='btn-google' class='btn-google' src='imagens/google.png'>
   <p class='register'>Não tem uma conta? <a href='/#record'>Cadastre-se</a></p>
 </form>
-<footer class="rodape">
-    Developed by Aline Souza, Marcella Teliceski e Nathalia Bitener
-</footer>
 `;
   const botaoLogin = container.querySelector('#login');
   const inputEmail = container.querySelector('#email');

@@ -12,6 +12,22 @@ export const home = () => {
   const container = document.createElement('div');
   container.classList.add('div-home');
 
+  const validaNomePerfil = () => {
+    if (firebase.auth().currentUser.displayName === '') {
+      return `<p class='name-user'>${firebase.auth().currentUser.email}</p>`;
+    } else {
+      return `<p class='name-user'>${firebase.auth().currentUser.displayName}</p>`;
+    }
+  };
+
+  const validaImgPerfil = () => {
+    if (firebase.auth().currentUser.photoURL === '') {
+      return `<img src='${firebase.auth().currentUser.photoURL}'></img>`;
+    } else {
+      return `<img src='imagens/user.png'></img>`;
+    }
+  };
+
   container.innerHTML = ` 
   <div class='menu'> 
   <input type='checkbox' id='check' class='check'>
@@ -20,7 +36,7 @@ export const home = () => {
   </label >
   <nav class='nav'>
   <ul class='ul'>
-    <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
+    <li class='li-link' id='edit-profile'><a class='link'href='/#profile'>Perfil</a></li>
     <li class='li-link-name'>Travel Time</a></li>
     <li class='li-link'>
     <a class='link'>
@@ -30,14 +46,6 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
-
- </div>
- <div class='menu-desk'>
- <button class='perfil-desk' id='edit-profile'>Perfil</button>
- <div class='app-name-home-desk'>Travel Time</div>
- <a class='link-desk'>
-  <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
-  </a>
  </div>
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
@@ -46,12 +54,13 @@ export const home = () => {
    <img src='imagens/Travel_time.png' class='logo-home'>
    </div>
    <div class='div-wave-desk'>
-    <img class='wave-desk' src='imagens/perfil-avatar.png'>
+    
    </div>
    </div>
  </div>
  <div id='div-form' class='div-form'>
- <img class='wave' src='imagens/perfil-avatar.png'>
+ ${validaImgPerfil()}
+ ${validaNomePerfil()}
  <div class='input-post-photo'>
  <div class='div-photo'>
   <img src='' width='100%' class='imgPreview'>
@@ -92,7 +101,6 @@ export const home = () => {
     postImage(photo, validarUrl);
   });
 
-
   const validarUrl = (url) => {
     preview.src = '';
     preview.src = url;
@@ -112,16 +120,7 @@ export const home = () => {
     signOut();
   });
 
-  editProfile.addEventListener('click', (event) => {
-  event.preventDefault();
-  profile();
-});
-
-  const profile = () => {
-  window.location.hash = '#profile';
-};
-
-  const postTemplate = (post) => {
+ const postTemplate = (post) => {
     const now = new Date();
     const spaceTemplate = document.createElement('div');
 
@@ -133,11 +132,19 @@ export const home = () => {
       }
     };
 
+    const validaNome = () => {
+      if (post.data().name === '') {
+        return `<div id='div-name' class='div-name'>${post.data().email}</div>`;
+      } else {
+        return `<div id='div-name' class='div-name'>${post.data().name}</div>`;
+      }
+    };
+
     spaceTemplate.innerHTML = `
   
   <div id='div-post' class='div-post'>
   <div id='container-name' class='container-name'>
-  <div id='div-name' class='div-name'>${post.data().name}</div>
+  ${validaNome()}
   </div>
   <div class ='div-postado' data-id='${post.id}'>
   ${validaImg()}
@@ -145,7 +152,7 @@ export const home = () => {
       post.data().text
     }</textarea>
   </div>
-  div id='div-container-btn' class='div-container-btn'>
+  <div id='div-container-btn' class='div-container-btn'>
   <div id='div-btn' class='div-btn'>
   <button data-id='${post.id}' class='curtida icon-post'>❤️${
       post.data().likes
@@ -154,7 +161,7 @@ export const home = () => {
       post.data().coments
     }</button>
   </div>
-  <div id='div-date' class=div-date>
+  <div id='div-date' class='div-date'>
   <p id='privaty' class='privaty'>${post.data().privacy}</p>
   <p id='date' class='date'>${now.getDate()}/${now.getMonth()}/${now.getFullYear()}</p>
   </div>
@@ -187,12 +194,19 @@ export const home = () => {
         return `<img src='' class='div-img-post'></img>`;
       }
     };
+    const validaNome = () => {
+      if (post.data().name === '') {
+        return `<div id='div-name' class='div-name'>${post.data().email}</div>`;
+      } else {
+        return `<div id='div-name' class='div-name'>${post.data().name}</div>`;
+      }
+    };
 
     spaceTemplate.innerHTML = `
   
   <div id='div-post' class='div-post'>
   <div id='container-name' class='container-name'>
-  <div id='div-name' class='div-name'>${post.data().name}</div>
+  ${validaNome()}
   <div id='div-delete' class='div-delete'>
   <button data-id='${post.id}' class='save'>✔️</button>
   <button data-id='${post.id}' class='edit'>✏️</button> 
@@ -205,7 +219,7 @@ export const home = () => {
       post.data().text
     }</textarea>
   </div>
-  
+  </div>
   <div id='div-container-btn' class='div-container-btn'>
   <div id='div-btn' class='div-btn'>
   <button data-id='${post.id}' class='curtida icon-post'>❤️${
@@ -241,7 +255,8 @@ export const home = () => {
     const btnLikes = spaceTemplate.querySelector(
       `.curtida[data-id='${post.id}']`
     );
-    const btnComentar = spaceTemplate.querySelector('#comentar-user');
+    const btnComentar = spaceTemplate.querySelector(`.comentar[data-id='${post.id}']`);
+    const divDate = spaceTemplate.querySelector('.div-date');
 
     btnDelete.addEventListener('click', (event) => {
       event.preventDefault();
@@ -267,6 +282,7 @@ export const home = () => {
       btnSave.style.display = 'inline-block';
       btnLikes.style.display = 'none';
       btnComentar.style.display = 'none';
+      divDate.style.display = 'none';
       selectPrivate.style.display = 'inline-block';
     };
 
@@ -277,6 +293,7 @@ export const home = () => {
       btnSave.style.display = 'none';
       btnLikes.style.display = '';
       btnComentar.style.display = '';
+      divDate.style.display = '';
       selectPrivate.style.display = 'none';
       const id = editText.dataset.id;
 

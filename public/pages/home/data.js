@@ -3,8 +3,9 @@ export const createPost = (post, privacyPost, url) => {
     .firestore()
     .collection('post')
     .add({
-      imagem:url,
-      name: firebase.auth().currentUser.email,
+      imagem: url,
+      name: firebase.auth().currentUser.displayName,
+      email: firebase.auth().currentUser.displayName,
       timestamps: firebase.firestore.Timestamp.fromDate(new Date())
         .toDate()
         .toLocaleString('pt-BR'),

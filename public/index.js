@@ -10,8 +10,8 @@ const validateLogin = (hash) => {
     if (user) {
       renderPage();
     } else {
-      if (hash === '#register') {
-        window.location.hash = 'register';
+      if (hash === '#record') {
+        window.location.hash = 'record';
       } else {
         window.location.hash = 'login';
       }
@@ -26,10 +26,9 @@ const renderPage = () => {
 };
 
 const init = () => window.addEventListener('hashchange', () => {
-
-  renderPage;
+  renderPage();
   const hash = window.location.hash;
-  validateUser(hash);
+  validateLogin(hash);
 }
 );
 
@@ -37,19 +36,4 @@ window.addEventListener('load', (event) => {
   event.preventDefault();
   renderPage();
   init();
-
 });
-
-const validateUser = (hash) => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if(user) {
-      renderPage();
-    }else{
-      if(hash === 'register'){
-        window.location.hash = 'register';
-      }else{
-        window.location.hash = 'login';
-      };
-    };
-  }) ;
-};
