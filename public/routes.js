@@ -7,5 +7,5 @@ export default {
   login,
   record,
   home,
-  profile
+  profile,
 };

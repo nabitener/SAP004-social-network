@@ -1,4 +1,4 @@
-import { newUser } from './data.js';
+import { newUser} from './data.js';
 
 export const record = () => {
   const container = document.createElement('div');
@@ -19,9 +19,14 @@ export const record = () => {
       <input type='password' id='confirm-password' class='password input-register register-space' placeholder= 'Confirme a senha' required>
       <p id='error-message' class='error.message'></p>
       <button id='record' class='btn-record input-register'>Criar conta</button>
-    </form>`;
+    </form>
+    <footer class="rodape">
+    Developed by Aline Souza, Marcella Teliceski e Nathalia Bitener
+    </footer>
+    `;
 
   const email = container.querySelector('#email');
+  const name = container.querySelector('#name');
   const password = container.querySelector('#password');
   const newpassword = container.querySelector('#confirm-password');
   const createUser = container.querySelector('#record');
@@ -45,6 +50,6 @@ export const record = () => {
   newUser(email, password,inputError);
   }
   });
-
+  
   return container;
 };
