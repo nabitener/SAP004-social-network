@@ -60,7 +60,7 @@ export const signOut = () => {
     .auth()
     .signOut()
     .then(() => {
-      window.location.hash = 'login';
+      window.location.hash = '#login';
     });
 };
 
@@ -86,7 +86,3 @@ export const postImage = (photo, callback) => {
     
   });
 };
-
-/*export const profile = () => {
-  window.location.hash = '#profile';
-};*/

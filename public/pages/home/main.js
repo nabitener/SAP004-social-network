@@ -17,10 +17,10 @@ export const home = () => {
   <input type='checkbox' id='check' class='check'>
   <label for='check' class='label-icone'>
     <img src='imagens/icone.png' alt='icone-menu'>
-  </label >
+  </label>
   <nav class='nav'>
   <ul class='ul'>
-    <li class='li-link' id='edit-profile'><a class='link'>Perfil</a></li>
+    <li class='li-link' id='edit-profile'><a class='link'href='/#profile'>Perfil</a></li>
     <li class='li-link-name'>Travel Time</a></li>
     <li class='li-link'>
     <a class='link'>
@@ -30,14 +30,6 @@ export const home = () => {
   </ul>
   </nav>
   <p class='app-name-home'>Travel Time</p>
-
- </div>
- <div class='menu-desk'>
- <button class='perfil-desk' id='edit-profile'>Perfil</button>
- <div class='app-name-home-desk'>Travel Time</div>
- <a class='link-desk'>
-  <input type='image' src='imagens/sign-out.png' class='signout' data-id='sign-out'>
-  </a>
  </div>
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
@@ -48,6 +40,7 @@ export const home = () => {
    <div class='div-wave-desk'>
     <img class='wave-desk' src='imagens/perfil-avatar.png'>
    </div>
+    <p>Breve descrição</p>
    </div>
  </div>
  <div id='div-form' class='div-form'>
@@ -72,6 +65,9 @@ export const home = () => {
  <div id='all-posts' class='all-posts'></div>
  </div>
 </form>
+<footer class="rodape">
+    Developed by Aline Souza, Marcella Teliceski e Nathalia Bitener
+</footer>
   `;
 
   const post = container.querySelector('#post');
@@ -81,7 +77,6 @@ export const home = () => {
   const exit = container.querySelector('.signout');
   const photo = container.querySelector('.photo');
   let preview = container.querySelector('.imgPreview');
-  // const editProfile = container.querySelector('#edit-profile');
 
   photo.addEventListener('change', (event) => {
     let file = event.target.files[0];
@@ -108,15 +103,6 @@ export const home = () => {
     event.preventDefault();
     signOut();
   });
-
-  editProfile.addEventListener('click', (event) => {
-  event.preventDefault();
-  profile();
-});
-
-  const profile = () => {
-  window.location.hash = '#profile';
-};
 
   const postTemplate = (post) => {
     const now = new Date();
