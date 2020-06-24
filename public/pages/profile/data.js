@@ -1,8 +1,5 @@
-/*export const profile = () => {
-    window.location.hash = '#profile';
-};*/
 
-export const user = (nome, url) => {
+export const user = (nome, url, bio) => {
   let user = firebase.auth().currentUser;
   user.updateProfile({
     displayName: nome,
@@ -10,7 +7,7 @@ export const user = (nome, url) => {
   }).then(function() {
     console.log('Update successful');
   }).catch(function(error) {
-    // An error happened.
+    console.log(error);
   });
 };
 
@@ -26,25 +23,6 @@ export const perfilImage = (photo, callback) => {
     
   });
 };
-
-/*export const editProfile = (biografia, name) => { 
-  firebase
-  .firestore()
-  .collection('profile')
-  .add({
-    bio: biografia,
-    nome: name,
-  })
-    .then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
-}*/
-
-
-
 
 export const back = () => {
     window.location.hash = '#home';
