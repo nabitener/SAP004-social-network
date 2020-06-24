@@ -10,7 +10,7 @@ const validateLogin = (hash) => {
     if (user) {
       renderPage();
     } else {
-      if (hash === '#record') {
+      if (hash === 'record') {
         window.location.hash = 'record';
       } else {
         window.location.hash = 'login';

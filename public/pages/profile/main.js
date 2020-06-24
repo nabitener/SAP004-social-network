@@ -5,17 +5,13 @@ export const profile = () => {
     container.classList.add('div-profile');
     container.innerHTML = `
     <form method='post' class='profile-edit'>
-      <img src='' class='img-perfil'>
+      <img src='imagens/user.png' class='imgPerfil img-perfil'>
       <input type='file' class='photo-perfil' id='photo' accept='image/png, image/jpeg, image/jpg'/> 
       <label for='new-name' class='label-new-name'>Digite seu nome    
         <input type='name' id='new-name' class='new-name' placeholder='Digite seu nome'>
       </label>
-      <label class='label-bio' for='bio'> Digite sua Bio
-        <textarea id='bio' class='bio' placeholder='Digite sua bio'></textarea>
-      </label>
       <div class='btn-profile-edit'>
         <button id='save-profile' class='btn-profile'>Salvar perfil</button>
-        <button id='cancel' class='btn-profile'>Cancelar</button>
         <button id='back-to-home' class='btn-profile'>Voltar</button>
       </div>
     </form>
@@ -29,6 +25,7 @@ export const profile = () => {
     const imgPerfil = container.querySelector('.img-perfil');
 
     inputPhoto.addEventListener('change', (event) => {
+      imgPerfil.src = '';
       let file = event.target.files[0];
       imgPerfil.src = URL.createObjectURL(file);
       perfilImage(inputPhoto, validarUrl);
@@ -41,7 +38,7 @@ export const profile = () => {
 
     saveProfile.addEventListener('click', (event) =>{
       event.preventDefault();
-      user(inputName.value, imgPerfil.src);
+      user(inputName.value, imgPerfil.src, inputBio.value);
     })
 
     const backToHome = container.querySelector('#back-to-home');
