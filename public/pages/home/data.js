@@ -25,24 +25,24 @@ export const createPost = (post, privacyPost, url) => {
 
 export const readPosts = (callback, callbackUser) => {
   firebase
-  .firestore()
-  .collection('post')
-  .orderBy('timestamps', 'desc')
-  .limit(20)
-  .get()
-  .then((querySnapshot) => {
-    querySnapshot.forEach((post) => {
-      if (
-        post.data().privacy === 'Público' || post.data().user_id === firebase.auth().currentUser.uid
-      ) {
-        if(post.data().user_id === firebase.auth().currentUser.uid) {
-          callbackUser(post);
-        }else{
-          callback(post);
+    .firestore()
+    .collection('post')
+    .orderBy('timestamps', 'desc')
+    .limit(20)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((post) => {
+        if (
+          post.data().privacy === 'Público' || post.data().user_id === firebase.auth().currentUser.uid
+        ) {
+          if (post.data().user_id === firebase.auth().currentUser.uid) {
+            callbackUser(post);
+          } else {
+            callback(post);
+          }
         }
-      }
+      });
     });
-  });
 };
 
 export const deletePost = (postId) => {
@@ -76,14 +76,13 @@ export const likePosts = (id, likes) => {
 };
 
 export const postImage = (photo, callback) => {
-  let file = photo.files[0];
-  let storageRef = firebase.storage().ref('imagens/' + file.name);
+  const file = photo.files[0];
+  const storageRef = firebase.storage().ref('imagens/' + file.name);
 
-   storageRef.put(file).then(() => {
+  storageRef.put(file).then(() => {
     storageRef.getDownloadURL().then((url) => {
       console.log(url);
-      callback(url);    
+      callback(url);
     });
-    
   });
 };

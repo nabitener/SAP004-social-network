@@ -1,29 +1,27 @@
-
-export const user = (nome, url, bio) => {
-  let user = firebase.auth().currentUser;
+export const user = (nome, url) => {
+  const user = firebase.auth().currentUser;
   user.updateProfile({
     displayName: nome,
     photoURL: url,
-  }).then(function() {
-    console.log('Update successful');
-  }).catch(function(error) {
+  }).then(() => {
+    console.log('Perfil atualizado')
+  }).catch((error) => {
     console.log(error);
   });
 };
 
 export const perfilImage = (photo, callback) => {
-  let file = photo.files[0];
-  let storageRef = firebase.storage().ref('imagens/' + file.name);
+  const file = photo.files[0];
+  const storageRef = firebase.storage().ref('imagens/' + file.name);
 
-   storageRef.put(file).then(() => {
+  storageRef.put(file).then(() => {
     storageRef.getDownloadURL().then((url) => {
       console.log(url);
-      callback(url);    
+      callback(url);
     });
-    
   });
 };
 
 export const back = () => {
-    window.location.hash = '#home';
+  window.location.hash = '#home';
 };

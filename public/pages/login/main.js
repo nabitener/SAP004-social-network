@@ -3,7 +3,6 @@ import { authEmailAndPassword, signIn } from './data.js';
 export const login = () => {
   const container = document.createElement('div');
   container.classList.add('div-container');
-
   container.innerHTML = `
 <div class='img-login login'>
   <img src='imagens/Travel_time.png' alt='Imagem Logo' class='coqueiro'>
@@ -23,7 +22,6 @@ export const login = () => {
   const inputSenha = container.querySelector('#pwd');
   const inputGoogle = container.querySelector('#btn-google');
   const spaceError = container.querySelector('#error-message');
-
   const inputError = (error) => {
     const message = `
     <p id='message' class='error-message'>
