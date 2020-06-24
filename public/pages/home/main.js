@@ -11,23 +11,7 @@ import {
 export const home = () => {
   const container = document.createElement('div');
   container.classList.add('div-home');
-
-  const validaNomePerfil = () => {
-    if (firebase.auth().currentUser.displayName === '') {
-      return `<p class='name-user'>${firebase.auth().currentUser.email}</p>`;
-    } else {
-      return `<p class='name-user'>${firebase.auth().currentUser.displayName}</p>`;
-    }
-  };
-
-  const validaImgPerfil = () => {
-    if (firebase.auth().currentUser.photoURL === '') {
-      return `<img src='${firebase.auth().currentUser.photoURL}'></img>`;
-    } else {
-      return `<img src='imagens/user.png'></img>`;
-    }
-  };
-
+  
   container.innerHTML = ` 
   <div class='menu'> 
   <input type='checkbox' id='check' class='check'>
@@ -50,19 +34,12 @@ export const home = () => {
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
    <div id='div-perfil' class='div-perfil'>
-   <div class='div-logo-home'> 
-   <img src='imagens/Travel_time.png' class='logo-home'>
-   </div>
-   <div class='div-wave-desk'>
-    
-   </div>
-    <p>Breve descrição</p>
-   </div>
+    <img src='imagens/user.png' class='imgPerfil'>
+    <p class='name-user'></p> 
+  </div>
  </div>
  <div id='div-form' class='div-form'>
- ${validaImgPerfil()}
- ${validaNomePerfil()}
- <div class='input-post-photo'>
+  <div class='input-post-photo'>
  <div class='div-photo'>
   <img src='' width='100%' class='imgPreview'>
 </div>
@@ -94,6 +71,19 @@ export const home = () => {
   const exit = container.querySelector('.signout');
   const photo = container.querySelector('.photo');
   let preview = container.querySelector('.imgPreview');
+  let photoPerfil = container.querySelector('.imgPerfil');
+  let nomeP = container.querySelector('.name-user');
+  
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user != null) {
+      nomeP.innerHTML = user.displayName;
+      photoPerfil.src = user.photoURL;  
+    }else{
+      nomeP.innerHTML = user.email;
+    } 
+  });
+
 
   photo.addEventListener('change', (event) => {
     let file = event.target.files[0];
@@ -120,7 +110,7 @@ export const home = () => {
     signOut();
   });
 
- const postTemplate = (post) => {
+  const postTemplate = (post) => {
     const now = new Date();
     const spaceTemplate = document.createElement('div');
 
@@ -255,7 +245,9 @@ export const home = () => {
     const btnLikes = spaceTemplate.querySelector(
       `.curtida[data-id='${post.id}']`
     );
-    const btnComentar = spaceTemplate.querySelector(`.comentar[data-id='${post.id}']`);
+    const btnComentar = spaceTemplate.querySelector(
+      `.comentar[data-id='${post.id}']`
+    );
     const divDate = spaceTemplate.querySelector('.div-date');
 
     btnDelete.addEventListener('click', (event) => {

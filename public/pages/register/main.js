@@ -26,7 +26,6 @@ export const record = () => {
     `;
 
   const email = container.querySelector('#email');
-  const name = container.querySelector('#name');
   const password = container.querySelector('#password');
   const newpassword = container.querySelector('#confirm-password');
   const createUser = container.querySelector('#record');
