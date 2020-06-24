@@ -17,7 +17,7 @@ export const home = () => {
   <input type='checkbox' id='check' class='check'>
   <label for='check' class='label-icone'>
     <img src='imagens/icone.png' alt='icone-menu'>
-  </label >
+  </label>
   <nav class='nav'>
   <ul class='ul'>
     <li class='li-link' id='edit-profile'><a class='link'href='/#profile'>Perfil</a></li>
@@ -83,6 +83,7 @@ export const home = () => {
       nomeP.innerHTML = user.email;
     } 
   });
+
 
   photo.addEventListener('change', (event) => {
     let file = event.target.files[0];

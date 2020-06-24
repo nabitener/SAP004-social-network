@@ -8,11 +8,11 @@ export const profile = () => {
       <img src='imagens/user.png' class='imgPerfil img-perfil'>
       <input type='file' class='photo-perfil' id='photo' accept='image/png, image/jpeg, image/jpg'/> 
       <label for='new-name' class='label-new-name'>Digite seu nome    
-      <input type='name' id='new-name' class='new-name' placeholder='Digite seu nome'>
+        <input type='name' id='new-name' class='new-name' placeholder='Digite seu nome'>
       </label>
       <div class='btn-profile-edit'>
-      <button id='save-profile' class='btn-profile'>Salvar perfil</button>
-      <button id='back-to-home' class='btn-profile'>Voltar</button>
+        <button id='save-profile' class='btn-profile'>Salvar perfil</button>
+        <button id='back-to-home' class='btn-profile'>Voltar</button>
       </div>
     </form>
 
