@@ -7,13 +7,13 @@ export const record = () => {
   container.innerHTML = `
     <div class=btn-back>
     <a href=''>
-    <button id='btn-back' class='btn-back input-register'>&#8672 Voltar</button>
+      <button id='btn-back' class='btn-back input-register'>&#8672 Voltar</button>
     </a>
     </div>
     <form class='form-register'>
       <p class='registro'><h2 class='registro-title'>Cadastro</h2></p> 
       <input type='name' id='name' class='user-name input-register register-space' placeholder='Nome' required>
-      <input type='surname' id='surname' class='surname input-register register-space' placeholder='Sobrenome' required><br>
+      <input type='surname' id='surname' class='surname input-register register-space' placeholder='Sobrenome' required>
       <input type='email' id='email' class='email input-register register-space' placeholder='Digite o e-mail' required>
       <input type='password' id='password' class='password input-register register-space' placeholder= 'Digite a senha' required>
       <input type='password' id='confirm-password' class='password input-register register-space' placeholder= 'Confirme a senha' required>
