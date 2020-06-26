@@ -168,7 +168,7 @@ export const home = () => {
     const spaceTemplate = document.createElement('div');
 
     const validaImg = () => {
-      if (post.data().imagem !== 'http://localhost:5000/') {
+      if (post.data().imagem !== 'https://social-network-39e83.web.app/') {
         return `<img src='${post.data().imagem}' class='div-img-post'></img>`;
       } else {
         return `<img src='' class='div-img-post'></img>`;
