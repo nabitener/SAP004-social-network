@@ -469,7 +469,7 @@ body {
   display: flex;
   flex-direction: row;
   height: 130px;
-  padding: 20px;
+  padding: 10px;
 }
 .name-user {
   width: 50%;
@@ -479,6 +479,10 @@ body {
 .photo-perfil {
   border-radius: 10px;
 }
+.bio-text{
+  align-self: center;
+  width: -webkit-fill-available;
+}
 
 @media screen and (min-width: 1000px) {
   .div-container {
@@ -487,7 +491,6 @@ body {
   }
   .img-login {
     width: 30%;
-    /*justify-items: center;*/
   }
   .coqueiro {
     width: 100%;
@@ -650,17 +653,30 @@ body {
   .div-perfil {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 200px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 300px;
     border: 1px solid white;
     margin-top: 10px;
     border-radius: 5px;
-    width: 70%;
+    width: 100%;
+    background-color: rgba(253, 252, 252, 0.411);
   }
-  .name-user {
+  .name-user, .bio-text {
     margin: 0px;
     text-align: center;
     margin-top: 5px;
+    width: 100%;
+    color: black;
+  }
+  .name-user{
+    font-weight: bolder;
+  }
+  .bio-text{
+    height: auto;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
   }
   .select-private {
     width: 20%;

@@ -9,6 +9,7 @@ export const profile = () => {
       <input type='file' class='photo-perfil' id='photo' accept='image/png, image/jpeg, image/jpg'/> 
       <label for='new-name' class='label-new-name'>Digite seu nome    
       <input type='name' id='new-name' class='new-name' placeholder='Digite seu nome'>
+      <textarea id='bio' class='bio' maxlength="300"></textarea>
       </label>
       <div class='btn-profile-edit'>
       <button id='save-profile' class='btn-profile'>Salvar perfil</button>
@@ -39,6 +40,7 @@ export const profile = () => {
     saveProfile.addEventListener('click', (event) =>{
       event.preventDefault();
       user(inputName.value, imgPerfil.src, inputBio.value);
+      back();
     })
 
     const backToHome = container.querySelector('#back-to-home');
