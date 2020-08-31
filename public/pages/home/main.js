@@ -6,12 +6,12 @@ import {
   likePosts,
   signOut,
   postImage,
-} from './data.js';
+} from "./data.js";
 
 export const home = () => {
-  const container = document.createElement('div');
-  container.classList.add('div-home');
-  
+  const container = document.createElement("div");
+  container.classList.add("div-home");
+
   container.innerHTML = ` 
   <div class='menu'> 
   <input type='checkbox' id='check' class='check'>
@@ -34,8 +34,11 @@ export const home = () => {
  <form method='post' class='form-home'>
  <div id='input-post' class='input-post'>
    <div id='div-perfil' class='div-perfil'>
-    <img src='imagens/user.png' class='imgPerfil'>
-    <p class='name-user'></p> 
+   <a class='link-img' href='/#profile'>
+   <img src='imagens/user.png' class='imgPerfil'>
+   </a>
+   <p class='name-user'></p> 
+   <p class='bio-text'></p>
   </div>
  </div>
  <div id='div-form' class='div-form'>
@@ -46,7 +49,7 @@ export const home = () => {
  <input id='post' class='post' type='text' placeholder='Para onde vamos?'>
  </div>
  <div id='container-private' class='container-private'>
-   <button id='send-post' class='send-post icon-post'>✈️</button>
+   <button id='send-post' class='send-post icon-post'>Publicar</button>
    <label for='photo' class='label-camera icon-post'>📷
   <input type='file' class='photo' id='photo' accept='image/png, image/jpeg, image/jpg'/> 
   </label>
@@ -64,57 +67,64 @@ export const home = () => {
 </footer>
   `;
 
-  const post = container.querySelector('#post');
-  const sendBtn = container.querySelector('#send-post');
-  const allPosts = container.querySelector('#all-posts');
-  const privacyPost = container.querySelector('#input-private');
-  const exit = container.querySelector('.signout');
-  const photo = container.querySelector('.photo');
-  let preview = container.querySelector('.imgPreview');
-  let photoPerfil = container.querySelector('.imgPerfil');
-  let nomeP = container.querySelector('.name-user');
-  
+  const post = container.querySelector("#post");
+  const sendBtn = container.querySelector("#send-post");
+  const allPosts = container.querySelector("#all-posts");
+  const privacyPost = container.querySelector("#input-private");
+  const exit = container.querySelector(".signout");
+  const photo = container.querySelector(".photo");
+  const bio = container.querySelector(".bio-text");
+  let preview = container.querySelector(".imgPreview");
+  let photoPerfil = container.querySelector(".imgPerfil");
+  let nomeP = container.querySelector(".name-user");
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user != null) {
-      nomeP.innerHTML = user.displayName;
-      photoPerfil.src = user.photoURL;  
-    }else{
-      nomeP.innerHTML = user.email;
-    } 
+      const userId = firebase.auth().currentUser;
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(userId.uid)
+        .get()
+        .then((doc) => {
+          nomeP.innerHTML = userId.displayName;
+          photoPerfil.src = userId.photoURL;
+          bio.innerHTML = doc.data().biography;
+        });
+    }
   });
 
-  photo.addEventListener('change', (event) => {
+  photo.addEventListener("change", (event) => {
     let file = event.target.files[0];
     preview.src = URL.createObjectURL(file);
     postImage(photo, validarUrl);
   });
 
   const validarUrl = (url) => {
-    preview.src = '';
+    preview.src = "";
     preview.src = url;
   };
 
-  sendBtn.addEventListener('click', (event) => {
+  sendBtn.addEventListener("click", (event) => {
     event.preventDefault();
     createPost(post.value, privacyPost.value, preview.src);
-    preview.src = '';
-    post.value = '';
-    allPosts.innerHTML = '';
+    preview.src = "";
+    post.value = "";
+    allPosts.innerHTML = "";
     readPosts(postTemplate, postTemplateUser);
   });
 
-  exit.addEventListener('click', (event) => {
+  exit.addEventListener("click", (event) => {
     event.preventDefault();
     signOut();
   });
 
   const postTemplate = (post) => {
     const now = new Date();
-    const spaceTemplate = document.createElement('div');
+    const spaceTemplate = document.createElement("div");
 
     const validaImg = () => {
-      if (post.data().imagem !== 'http://localhost:5000/') {
+      if (post.data().imagem !== "http://localhost:5000/") {
         return `<img src='${post.data().imagem}' class='div-img-post'></img>`;
       } else {
         return `<img src='' class='div-img-post'></img>`;
@@ -122,7 +132,7 @@ export const home = () => {
     };
 
     const validaNome = () => {
-      if (post.data().name === '') {
+      if (post.data().name === "") {
         return `<div id='div-name' class='div-name'>${post.data().email}</div>`;
       } else {
         return `<div id='div-name' class='div-name'>${post.data().name}</div>`;
@@ -137,17 +147,14 @@ export const home = () => {
   </div>
   <div class ='div-postado' data-id='${post.id}'>
   ${validaImg()}
-  <textarea data-id='${post.id}' class='text-post' disabled>${
+  <p data-id='${post.id}' class='text-post'>${
       post.data().text
-    }</textarea>
+    }</p>
   </div>
   <div id='div-container-btn' class='div-container-btn'>
   <div id='div-btn' class='div-btn'>
   <button data-id='${post.id}' class='curtida icon-post'>❤️${
       post.data().likes
-    }</button>
-  <button data-id='${post.id}' class='comentar icon-post'>💬${
-      post.data().coments
     }</button>
   </div>
   <div id='div-date' class='div-date'>
@@ -164,27 +171,27 @@ export const home = () => {
       `.curtida[data-id='${post.id}']`
     );
 
-    btnLikes.addEventListener('click', () => {
+    btnLikes.addEventListener("click", () => {
       const id = btnLikes.dataset.id;
       likePosts(id, post.data().likes);
-      allPosts.innerHTML = '';
+      allPosts.innerHTML = "";
       readPosts(postTemplate, postTemplateUser);
     });
   };
 
   const postTemplateUser = (post) => {
     const now = new Date();
-    const spaceTemplate = document.createElement('div');
+    const spaceTemplate = document.createElement("div");
 
     const validaImg = () => {
-      if (post.data().imagem !== 'http://localhost:5000/') {
+      if (post.data().imagem !== "http://localhost:5000/") {
         return `<img src='${post.data().imagem}' class='div-img-post'></img>`;
       } else {
         return `<img src='' class='div-img-post'></img>`;
       }
     };
     const validaNome = () => {
-      if (post.data().name === '') {
+      if (post.data().name === "") {
         return `<div id='div-name' class='div-name'>${post.data().email}</div>`;
       } else {
         return `<div id='div-name' class='div-name'>${post.data().name}</div>`;
@@ -214,9 +221,6 @@ export const home = () => {
   <button data-id='${post.id}' class='curtida icon-post'>❤️${
       post.data().likes
     }</button>
-  <button data-id='${post.id}' class='comentar icon-post'>💬${
-      post.data().coments
-    }</button>
   </div>
   <select class='select-private' name='input-private'>
     <option id='option-public' class='public'>Público</option> 
@@ -232,64 +236,59 @@ export const home = () => {
 
     allPosts.appendChild(spaceTemplate);
 
-    const btnSave = spaceTemplate.querySelector('.save');
-    const btnEdit = spaceTemplate.querySelector('.edit');
+    const btnSave = spaceTemplate.querySelector(".save");
+    const btnEdit = spaceTemplate.querySelector(".edit");
     const editText = spaceTemplate.querySelector(
       `.text-post[data-id='${post.id}']`
     );
-    const selectPrivate = spaceTemplate.querySelector('.select-private');
+    const selectPrivate = spaceTemplate.querySelector(".select-private");
     const btnDelete = spaceTemplate.querySelector(
       `.delete[data-id='${post.id}']`
     );
     const btnLikes = spaceTemplate.querySelector(
       `.curtida[data-id='${post.id}']`
     );
-    const btnComentar = spaceTemplate.querySelector(
-      `.comentar[data-id='${post.id}']`
-    );
-    const divDate = spaceTemplate.querySelector('.div-date');
+    const divDate = spaceTemplate.querySelector(".div-date");
 
-    btnDelete.addEventListener('click', (event) => {
+    btnDelete.addEventListener("click", (event) => {
       event.preventDefault();
       const id = btnDelete.dataset.id;
       deletePost(id);
-      allPosts.innerHTML = '';
+      allPosts.innerHTML = "";
       readPosts(postTemplate, postTemplateUser);
     });
-    btnEdit.addEventListener('click', (event) => {
+    btnEdit.addEventListener("click", (event) => {
       event.preventDefault();
       editPost();
     });
 
-    btnSave.addEventListener('click', (event) => {
+    btnSave.addEventListener("click", (event) => {
       event.preventDefault();
       savePost();
     });
 
     const editPost = () => {
       editText.disabled = false;
-      editText.style.color = 'rgba(14, 60, 89, 1)';
-      editText.style.background = 'white';
-      btnSave.style.display = 'inline-block';
-      btnLikes.style.display = 'none';
-      btnComentar.style.display = 'none';
-      divDate.style.display = 'none';
-      selectPrivate.style.display = 'inline-block';
+      editText.style.color = "rgba(14, 60, 89, 1)";
+      editText.style.background = "white";
+      btnSave.style.display = "inline-block";
+      btnLikes.style.display = "none";
+      divDate.style.display = "none";
+      selectPrivate.style.display = "inline-block";
     };
 
     const savePost = () => {
       editText.disabled = true;
-      editText.style.color = 'wheat';
-      editText.style.background = 'rgba(191, 87, 26, 1)';
-      btnSave.style.display = 'none';
-      btnLikes.style.display = '';
-      btnComentar.style.display = '';
-      divDate.style.display = '';
-      selectPrivate.style.display = 'none';
+      editText.style.color = "wheat";
+      editText.style.background = "rgba(191, 87, 26, 1)";
+      btnSave.style.display = "none";
+      btnLikes.style.display = "";
+      divDate.style.display = "";
+      selectPrivate.style.display = "none";
       const id = editText.dataset.id;
 
       editAndSavePost(id, editText.value, selectPrivate.value);
-      allPosts.innerHTML = '';
+      allPosts.innerHTML = "";
       readPosts(postTemplate, postTemplateUser);
     };
   };
