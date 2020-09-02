@@ -21,7 +21,6 @@ export const user = (nome, url, bio) => {
 export const perfilImage = (photo, callback) => {
   let file = photo.files[0];
   let storageRef = firebase.storage().ref("imagens/" + file.name);
-
   storageRef.put(file).then(() => {
     storageRef.getDownloadURL().then((url) => {
       console.log(url);
