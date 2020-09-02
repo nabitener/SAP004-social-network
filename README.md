@@ -21,6 +21,12 @@ A lógica do projeto foi implementada inteiramente em JavaScript Vanilla e utili
 
 Para o banco de dados foi usado o Firebase, onde criamos o nosso próprio banco de dados, e também com o Firebase fizemos a autenticação, e a manipulação dos dados dos usuários.
 
+## Conheça nosso app
+
+Visite e conheça um pouco mais sobre a nossa rede social:
+
+https://social-network-travel-97.web.app
+
 
 
 *** Projeto realizado por Aline Souza, Marcella Teliceski e Nathalia Bitener ***
