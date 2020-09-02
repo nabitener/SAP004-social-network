@@ -4,20 +4,19 @@ const main = document.querySelector('#root');
 
 const validateHash = hash => (hash === '' ? 'login' : hash.replace('#', ''));
 
-
 const validateLogin = (hash) => {
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       renderPage();
     } else {
-      if (hash === 'record') {
+      if (hash === '#record') {
         window.location.hash = 'record';
       } else {
         window.location.hash = 'login';
       }
     }
   });
-}
+};
 
 const renderPage = () => {
   main.innerHTML = '';
@@ -29,8 +28,7 @@ const init = () => window.addEventListener('hashchange', () => {
   renderPage();
   const hash = window.location.hash;
   validateLogin(hash);
-}
-);
+});
 
 window.addEventListener('load', (event) => {
   event.preventDefault();
