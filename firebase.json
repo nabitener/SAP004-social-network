@@ -13,6 +13,7 @@
     "source": "functions"
   },
   "hosting": {
+    "site": "social-network-travel-97",
     "public": "public",
     "ignore": [
       "firebase.json",
