@@ -5,11 +5,13 @@ export const profile = () => {
   container.classList.add('div-profile');
   container.innerHTML = `
     <form method='post' class='profile-edit'>
-      <img src='imagens/user.png' class='imgPerfil img-perfil'>
+      <img src='' class='imgPerfil img-perfil'>
       <input type='file' class='photo-perfil' id='photo' accept='image/png, image/jpeg, image/jpg'/>
       <p class='update-message' id='update-message'></p>
       <label for='new-name' class='label-new-name'>Digite seu nome    
-      <input type='name' id='new-name' class='new-name' placeholder='Digite seu nome'>
+      <textarea id='new-name' class='new-name' maxlength="100"></textarea>
+      </label>
+      <label for='bio' class='label-bio'>Biografia
       <textarea id='bio' class='bio' maxlength="300"></textarea>
       </label>
       <div class='btn-profile-edit'>
@@ -21,9 +23,26 @@ export const profile = () => {
 
   const saveProfile = container.querySelector('#save-profile');
   const inputName = container.querySelector('.new-name');
+  const inputBio = container.querySelector('.bio');
   const inputPhoto = container.querySelector('.photo-perfil');
   const imgPerfil = container.querySelector('.img-perfil');
   const backToHome = container.querySelector('#back-to-home');
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user != null) {
+      const userId = firebase.auth().currentUser;
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(userId.uid)
+        .get()
+        .then((doc) => {
+          inputName.innerHTML = userId.displayName;
+          imgPerfil.src = userId.photoURL;
+          inputBio.innerHTML = doc.data().biography;
+        });
+    }
+  });
 
   inputPhoto.addEventListener('change', (event) => {
     imgPerfil.src = '';
