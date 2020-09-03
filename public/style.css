@@ -483,6 +483,9 @@ body {
   align-self: center;
   width: -webkit-fill-available;
 }
+.label-bio{
+  display: contents;
+}
 
 @media screen and (min-width: 1000px) {
   .div-container {
@@ -724,7 +727,8 @@ body {
     font-weight: bold;
   }
   .new-name {
-    width: 30%;
+    width: 50%;
+    height: 40px
   }
 }
 

@@ -36,7 +36,7 @@ export const login = () => {
   });
   inputGoogle.addEventListener('click', (event) => {
     event.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
+    let provider = new firebase.auth.GoogleAuthProvider();
     signIn(provider, inputError);
   });
   return container;
